@@ -1,4 +1,4 @@
-# HR Management System
+# Human Resource Management System
 
 > Semester Project for Database Management System Course
 
