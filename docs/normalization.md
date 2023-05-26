@@ -1,4 +1,4 @@
-<h1 align="center">Assignemnt 3 - Normalization </h1>
+# Assignemnt 3 - Normalization
 
 ## Human Resource Management System
 
