@@ -15,7 +15,7 @@
 
 ## Installation
 
-```
+```bash
 git clone https://github.com/ahmedivy/hr-ms
 cd hr-ms
 python -m venv .venv
