@@ -51,3 +51,67 @@ class Employee(SQLModel, table=True):
 
     class Config:
         orm_mode = True
+
+
+class Loan(SQLModel, table=True):
+    loan_id: Optional[int] = Field(default=None, primary_key=True)
+    emp_id: int = Field(default=None, foreign_key="employees.emp_id")
+    loan_amount: float
+    loan_date: datetime
+    loan_status: str
+    loan_description: str
+
+    __tablename__ = "loans"
+
+    class Config:
+        orm_mode = True
+
+
+class Salary(SQLModel, table=True):
+    sal_id: Optional[int] = Field(default=None, primary_key=True)
+    org_id: int = Field(default=None, foreign_key="organizations.org_id")
+    sal_created_date: date
+    sal_month: str
+    sal_year: str
+    sal_discription: Optional[str] = None
+
+    __tablename__ = "salaries"
+
+    class Config:
+        orm_mode = True
+
+
+class SalaryDetail(SQLModel, table=True):
+    sal_id: int = Field(default=None, foreign_key="salaries.sal_id", primary_key=True)
+    emp_id: int = Field(default=None, foreign_key="employees.emp_id", primary_key=True)
+    sal_gross_amount: float
+    sal_deductions: float
+    sal_net_amount: float
+
+    __tablename__ = "salaryDetails"
+
+    class Config:
+        orm_mode = True
+
+
+class Attendance(SQLModel, table=True):
+    atd_id: Optional[int] = Field(default=None, primary_key=True)
+    org_id: int = Field(default=None, foreign_key="organizations.org_id")
+    atd_date: date
+
+    __tablename__ = "attendances"
+
+    class Config:
+        orm_mode = True
+
+
+class AttendanceDetail(SQLModel, table=True):
+    atd_id: int = Field(default=None, foreign_key="attendances.atd_id", primary_key=True)
+    emp_id: int = Field(default=None, foreign_key="employees.emp_id", primary_key=True)
+    atd_start_time: datetime
+    atd_end_time: datetime
+
+    __tablename__ = "attendanceDetails"
+
+    class Config:
+        orm_mode = True
