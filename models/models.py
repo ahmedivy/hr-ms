@@ -19,7 +19,7 @@ class Organization(SQLModel, table=True):
     org_zip: Optional[str] = None
     org_country: Optional[str] = None
 
-    # employees: List["Employee"] = Relationship(back_populates="organization")
+    employees: List["Employee"] = Relationship(back_populates="organization")
 
     __tablename__ = "organizations"
 
@@ -27,7 +27,7 @@ class Organization(SQLModel, table=True):
         orm_mode = True
 
 
-class Employee(SQLModel):
+class Employee(SQLModel, table=True):
     emp_id: Optional[int] = Field(default=None, primary_key=True)
     org_id: int = Field(default=None, foreign_key="organizations.org_id")
     emp_firstname: str
@@ -45,7 +45,7 @@ class Employee(SQLModel):
     emp_position: str
     emp_hourly_rate: int
 
-    # organization: Optional[Organization] = Relationship(back_populates="employees")
+    organization: Optional[Organization] = Relationship(back_populates="employees")
 
     __tablename__ = "employees"
 
