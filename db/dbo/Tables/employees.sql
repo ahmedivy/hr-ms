@@ -20,3 +20,7 @@ CREATE TABLE [dbo].[employees]
   [emp_position] NVARCHAR(50) NOT NULL,
   [emp_hourly_rate] DECIMAL(10, 2) NOT NULL,
 )
+GO
+
+ALTER TABLE [dbo].[employees] ALTER COLUMN [emp_hourly_rate] MONEY NOT NULL
+GO
