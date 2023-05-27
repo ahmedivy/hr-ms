@@ -27,5 +27,4 @@ python main.py
 
 This is a top level abstraction of the Database Design
 
-![er-diagram](https://github.com/ahmedivy/hr-ms/assets/91587113/2e3434f0-f703-4249-8b1e-a5206840c3a1)
-
+![ER-Diagram](diagrams/HRMS-ERD.svg)
