@@ -1,1 +1,1 @@
-from .organization import Organization
+from .models import Organization, Employee
