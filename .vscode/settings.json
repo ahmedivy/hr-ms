@@ -3,5 +3,6 @@
     "editor.defaultFormatter": "ms-python.autopep8"
   },
   "python.formatting.provider": "none",
-  "dataworkspace.excludedProjects": ["hr-ms/hr-ms.sqlproj"]
+  "dataworkspace.excludedProjects": ["hr-ms/hr-ms.sqlproj"],
+  "svg.preview.background": "custom"
 }
