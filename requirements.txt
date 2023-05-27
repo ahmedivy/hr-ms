@@ -1,3 +1,4 @@
+dotenv==0.0.5
 greenlet==2.0.2
 pydantic==1.10.8
 pyodbc==4.0.39
