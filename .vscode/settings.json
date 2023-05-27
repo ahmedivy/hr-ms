@@ -4,5 +4,5 @@
   },
   "python.formatting.provider": "none",
   "dataworkspace.excludedProjects": ["hr-ms/hr-ms.sqlproj"],
-  "svg.preview.background": "custom"
+  "svg.preview.background": "transparent"
 }
