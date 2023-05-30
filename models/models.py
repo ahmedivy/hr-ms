@@ -26,7 +26,6 @@ class Organization(SQLModel, table=True):
     class Config:
         orm_mode = True
 
-
 class Employee(SQLModel, table=True):
     emp_id: Optional[int] = Field(default=None, primary_key=True)
     org_id: int = Field(default=None, foreign_key="organizations.org_id")
