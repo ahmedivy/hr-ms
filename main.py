@@ -13,4 +13,5 @@ if __name__ == "__main__":
     
     window = AddEmployeeWindow()
     window.show()
-    app.exec()
+    app.exec() 
+    
