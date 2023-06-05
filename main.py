@@ -2,7 +2,8 @@ import sys
 from PySide6.QtWidgets import QApplication
 from qdarktheme import setup_theme as apply_css
 
-from views.mainwindow import MainWindow
+from views.login import LoginWindow
+from views.addEmployee import AddEmployeeWindow
 
 if __name__ == "__main__":
     # qdarktheme.enable_hi_dpi()
@@ -10,6 +11,6 @@ if __name__ == "__main__":
     
     apply_css("auto")
     
-    window = MainWindow()
+    window = AddEmployeeWindow()
     window.show()
-    app.exec() 
+    app.exec()
