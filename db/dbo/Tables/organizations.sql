@@ -35,3 +35,5 @@ ALTER TABLE [dbo].[organizations] ALTER COLUMN [org_city] NVARCHAR(30) NULL
 ALTER TABLE [dbo].[organizations] ALTER COLUMN [org_state] NVARCHAR(30) NULL
 ALTER TABLE [dbo].[organizations] ALTER COLUMN [org_zip] NVARCHAR(30) NULL
 ALTER TABLE [dbo].[organizations] ALTER COLUMN [org_country] NVARCHAR(30) NULL
+
+ALTER TABLE [dbo].[organizations] ALTER COLUMN [org_description] NVARCHAR(500) NULL

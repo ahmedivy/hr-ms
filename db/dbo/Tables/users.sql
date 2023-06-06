@@ -13,3 +13,13 @@ CREATE TABLE [dbo].[users]
 
 GO
 
+-- Delete all rows from organizations table
+DELETE FROM [dbo].[organizations];
+GO
+
+SELECT *
+FROM [dbo].[employees];
+
+
+SELECT *
+FROM [dbo].[attendanceDetails];

@@ -18,9 +18,12 @@ CREATE TABLE [dbo].[employees]
   [emp_termination_date] DATE DEFAULT NULL,
   [emp_dob] DATE NOT NULL,
   [emp_position] NVARCHAR(50) NOT NULL,
-  [emp_hourly_rate] DECIMAL(10, 2) NOT NULL,
+  [emp_hourly_rate] MONEY NOT NULL,
 )
 GO
 
-ALTER TABLE [dbo].[employees] ALTER COLUMN [emp_hourly_rate] MONEY NOT NULL
+-- Adding CNIC column
+ALTER TABLE [dbo].[employees]
+ADD [emp_cnic] NVARCHAR(20) NULL
 GO
+
