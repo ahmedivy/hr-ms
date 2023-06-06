@@ -1,7 +1,7 @@
 from PySide6.QtCore import Slot
 from PySide6.QtWidgets import QMainWindow
 
-from ui.addemployee_ui import Ui_AddEmployeeWindow
+from ui.screens.addemployee_ui import Ui_AddEmployeeWindow
 
 
 class AddEmployeeWindow(QMainWindow):

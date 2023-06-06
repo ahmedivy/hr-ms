@@ -29,30 +29,30 @@
          <number>100</number>
         </property>
         <item>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="dashboardButton">
           <property name="text">
            <string>Dashboard</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="organizationButton">
           <property name="text">
-           <string>PushButton</string>
+           <string>Organizations</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_5">
+         <widget class="QPushButton" name="employeeButton">
           <property name="text">
-           <string>PushButton</string>
+           <string>Employees</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_4">
+         <widget class="QPushButton" name="attendanceButton">
           <property name="text">
-           <string>PushButton</string>
+           <string>Attendance</string>
           </property>
          </widget>
         </item>
@@ -138,7 +138,10 @@
           <layout class="QHBoxLayout" name="horizontalLayout">
            <item>
             <widget class="QStackedWidget" name="stackedWidget">
-             <widget class="QWidget" name="page"/>
+             <property name="currentIndex">
+              <number>1</number>
+             </property>
+             <widget class="QWidget" name="employeeScreen"/>
              <widget class="QWidget" name="page_2"/>
             </widget>
            </item>

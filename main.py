@@ -8,9 +8,9 @@ if __name__ == "__main__":
     # qdarktheme.enable_hi_dpi()
     app = QApplication(sys.argv)
     
-    apply_css("auto")
+    apply_css("dark")
     
     window = MainWindow()
     window.show()
-    app.exec() 
-    
+    app.exec()
+   

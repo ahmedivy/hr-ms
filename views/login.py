@@ -4,7 +4,7 @@ from PySide6.QtWidgets import QMainWindow
 from models import *
 from sqlmodel import select
 
-from ui.loginwindow_ui import Ui_LoginWindow
+from ui.screens.loginwindow_ui import Ui_LoginWindow
 
 
 class LoginWindow(QMainWindow):

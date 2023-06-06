@@ -36,25 +36,25 @@ class Ui_MainWindow(object):
         self.menuLayout.setObjectName(u"menuLayout")
         self.menuLayout.setSizeConstraint(QLayout.SetMaximumSize)
         self.menuLayout.setContentsMargins(-1, 100, -1, -1)
-        self.pushButton = QPushButton(self.centralwidget)
-        self.pushButton.setObjectName(u"pushButton")
+        self.dashboardButton = QPushButton(self.centralwidget)
+        self.dashboardButton.setObjectName(u"dashboardButton")
 
-        self.menuLayout.addWidget(self.pushButton)
+        self.menuLayout.addWidget(self.dashboardButton)
 
-        self.pushButton_2 = QPushButton(self.centralwidget)
-        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.organizationButton = QPushButton(self.centralwidget)
+        self.organizationButton.setObjectName(u"organizationButton")
 
-        self.menuLayout.addWidget(self.pushButton_2)
+        self.menuLayout.addWidget(self.organizationButton)
 
-        self.pushButton_5 = QPushButton(self.centralwidget)
-        self.pushButton_5.setObjectName(u"pushButton_5")
+        self.employeeButton = QPushButton(self.centralwidget)
+        self.employeeButton.setObjectName(u"employeeButton")
 
-        self.menuLayout.addWidget(self.pushButton_5)
+        self.menuLayout.addWidget(self.employeeButton)
 
-        self.pushButton_4 = QPushButton(self.centralwidget)
-        self.pushButton_4.setObjectName(u"pushButton_4")
+        self.attendanceButton = QPushButton(self.centralwidget)
+        self.attendanceButton.setObjectName(u"attendanceButton")
 
-        self.menuLayout.addWidget(self.pushButton_4)
+        self.menuLayout.addWidget(self.attendanceButton)
 
         self.pushButton_3 = QPushButton(self.centralwidget)
         self.pushButton_3.setObjectName(u"pushButton_3")
@@ -106,9 +106,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.stackedWidget = QStackedWidget(self.frame)
         self.stackedWidget.setObjectName(u"stackedWidget")
-        self.page = QWidget()
-        self.page.setObjectName(u"page")
-        self.stackedWidget.addWidget(self.page)
+        self.employeeScreen = QWidget()
+        self.employeeScreen.setObjectName(u"employeeScreen")
+        self.stackedWidget.addWidget(self.employeeScreen)
         self.page_2 = QWidget()
         self.page_2.setObjectName(u"page_2")
         self.stackedWidget.addWidget(self.page_2)
@@ -132,15 +132,18 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
+        self.stackedWidget.setCurrentIndex(1)
+
+
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Dashboard", None))
-        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
-        self.pushButton_5.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
-        self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
+        self.dashboardButton.setText(QCoreApplication.translate("MainWindow", u"Dashboard", None))
+        self.organizationButton.setText(QCoreApplication.translate("MainWindow", u"Organizations", None))
+        self.employeeButton.setText(QCoreApplication.translate("MainWindow", u"Employees", None))
+        self.attendanceButton.setText(QCoreApplication.translate("MainWindow", u"Attendance", None))
         self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
         self.pushButton_6.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Hello", None))
