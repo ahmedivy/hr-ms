@@ -3,6 +3,7 @@ from datetime import date, datetime
 from sqlmodel import SQLModel, Field, Relationship
 
 
+
 class Organization(SQLModel, table=True):
     org_id: Optional[int] = Field(default=None, primary_key=True)
     org_name: str
@@ -31,6 +32,7 @@ class Employee(SQLModel, table=True):
     org_id: int = Field(default=None, foreign_key="organizations.org_id")
     emp_firstname: str
     emp_lastname: Optional[str] = None
+    emp_cnic: str
     emp_email: str
     emp_phone: str
     emp_address: Optional[str] = None
