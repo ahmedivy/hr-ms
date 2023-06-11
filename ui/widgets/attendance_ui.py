@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QHBoxLayout, QHeaderView, QLabel,
-    QPushButton, QSizePolicy, QSpacerItem, QTableView,
-    QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QDateEdit, QHBoxLayout,
+    QHeaderView, QLabel, QPushButton, QSizePolicy,
+    QSpacerItem, QTableView, QVBoxLayout, QWidget)
 
 class Ui_AttendanceWidget(object):
     def setupUi(self, AttendanceWidget):
@@ -52,15 +52,36 @@ class Ui_AttendanceWidget(object):
 
         self.mainLayout.addLayout(self.titleLayout)
 
-        self.horizontalLayout_3 = QHBoxLayout()
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.verticalLayout = QVBoxLayout()
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.filterBar = QHBoxLayout()
+        self.filterBar.setObjectName(u"filterBar")
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.filterBar.addItem(self.horizontalSpacer_2)
+
+        self.dateField = QDateEdit(AttendanceWidget)
+        self.dateField.setObjectName(u"dateField")
+
+        self.filterBar.addWidget(self.dateField)
+
+        self.orgField = QComboBox(AttendanceWidget)
+        self.orgField.setObjectName(u"orgField")
+
+        self.filterBar.addWidget(self.orgField)
+
+
+        self.verticalLayout.addLayout(self.filterBar)
+
         self.tableView = QTableView(AttendanceWidget)
         self.tableView.setObjectName(u"tableView")
 
-        self.horizontalLayout_3.addWidget(self.tableView)
+        self.verticalLayout.addWidget(self.tableView)
 
+        self.verticalLayout.setStretch(0, 1)
+        self.verticalLayout.setStretch(1, 8)
 
-        self.mainLayout.addLayout(self.horizontalLayout_3)
+        self.mainLayout.addLayout(self.verticalLayout)
 
         self.mainLayout.setStretch(0, 2)
         self.mainLayout.setStretch(1, 8)

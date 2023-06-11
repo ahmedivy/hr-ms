@@ -51,15 +51,20 @@ class Ui_MainWindow(object):
 
         self.menuLayout.addWidget(self.employeeButton)
 
+        self.salariesButton = QPushButton(self.centralwidget)
+        self.salariesButton.setObjectName(u"salariesButton")
+
+        self.menuLayout.addWidget(self.salariesButton)
+
         self.attendanceButton = QPushButton(self.centralwidget)
         self.attendanceButton.setObjectName(u"attendanceButton")
 
         self.menuLayout.addWidget(self.attendanceButton)
 
-        self.pushButton_3 = QPushButton(self.centralwidget)
-        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.loanButton = QPushButton(self.centralwidget)
+        self.loanButton.setObjectName(u"loanButton")
 
-        self.menuLayout.addWidget(self.pushButton_3)
+        self.menuLayout.addWidget(self.loanButton)
 
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -143,8 +148,9 @@ class Ui_MainWindow(object):
         self.dashboardButton.setText(QCoreApplication.translate("MainWindow", u"Dashboard", None))
         self.organizationButton.setText(QCoreApplication.translate("MainWindow", u"Organizations", None))
         self.employeeButton.setText(QCoreApplication.translate("MainWindow", u"Employees", None))
+        self.salariesButton.setText(QCoreApplication.translate("MainWindow", u"Salaries", None))
         self.attendanceButton.setText(QCoreApplication.translate("MainWindow", u"Attendance", None))
-        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
+        self.loanButton.setText(QCoreApplication.translate("MainWindow", u"Loans", None))
         self.pushButton_6.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Hello", None))
     # retranslateUi

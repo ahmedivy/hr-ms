@@ -63,6 +63,7 @@ class OrganizationWidget(QWidget):
         with engine.begin() as conn:
             stmt = text("EXEC GetOrganizations")
             orgs = conn.execute(stmt).all()
+            print(orgs)
         
         self.model = OrganizationModel(orgs)
         self.ui.tableView.setModel(self.model)

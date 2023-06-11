@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>AttendanceWidget</class>
- <widget class="QWidget" name="AttendanceWidget">
+ <class>SalaryWidget</class>
+ <widget class="QWidget" name="SalaryWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1009</width>
-    <height>741</height>
+    <width>877</width>
+    <height>713</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,16 +15,9 @@
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
-    <layout class="QVBoxLayout" name="mainLayout" stretch="2,8">
+    <layout class="QVBoxLayout" name="mainLayout" stretch="2,10">
      <item>
-      <layout class="QHBoxLayout" name="titleLayout">
-       <item>
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>Attendance</string>
-         </property>
-        </widget>
-       </item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
         <spacer name="horizontalSpacer">
          <property name="orientation">
@@ -39,25 +32,18 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="addButton">
+        <widget class="QPushButton" name="generateSalaryButton">
          <property name="text">
-          <string>Add</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton">
-         <property name="text">
-          <string>PushButton</string>
+          <string>Generate Salary</string>
          </property>
         </widget>
        </item>
       </layout>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout" stretch="1,8">
+      <layout class="QVBoxLayout" name="tableLayout" stretch="1,9">
        <item>
-        <layout class="QHBoxLayout" name="filterBar">
+        <layout class="QHBoxLayout" name="filterLayout">
          <item>
           <spacer name="horizontalSpacer_2">
            <property name="orientation">
@@ -70,9 +56,6 @@
             </size>
            </property>
           </spacer>
-         </item>
-         <item>
-          <widget class="QDateEdit" name="dateField"/>
          </item>
          <item>
           <widget class="QComboBox" name="orgField"/>

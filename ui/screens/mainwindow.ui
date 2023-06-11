@@ -50,6 +50,13 @@
          </widget>
         </item>
         <item>
+         <widget class="QPushButton" name="salariesButton">
+          <property name="text">
+           <string>Salaries</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QPushButton" name="attendanceButton">
           <property name="text">
            <string>Attendance</string>
@@ -57,9 +64,9 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_3">
+         <widget class="QPushButton" name="loanButton">
           <property name="text">
-           <string>PushButton</string>
+           <string>Loans</string>
           </property>
          </widget>
         </item>
