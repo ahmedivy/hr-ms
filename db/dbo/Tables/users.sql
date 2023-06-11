@@ -23,3 +23,13 @@ FROM [dbo].[employees];
 
 SELECT *
 FROM [dbo].[attendanceDetails];
+
+SELECT * FROM loans;
+
+INSERT INTO dbo.loans (emp_id, loan_amount, loan_description) VALUES (169, 400,'')
+
+
+SELECT * FROM employees
+
+UPDATE employees
+SET emp_hourly_rate = FLOOR(RAND(CHECKSUM(NEWID()))*(250-100+1)+100)

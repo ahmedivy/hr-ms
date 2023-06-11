@@ -10,6 +10,9 @@
   <ItemGroup>
     <PreDeploy Include="dbo\Script.PreDeployment1.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="dbo\triggers" />
+  </ItemGroup>
   <Target Name="BeforeBuild">
     <Delete Files="$(BaseIntermediateOutputPath)\project.assets.json" />
   </Target>
