@@ -34,6 +34,12 @@ class Ui_AddAttendanceWindow(object):
         self.titleLayout.setObjectName(u"titleLayout")
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
+        self.label.setStyleSheet(u"background-color: rgb(85, 170, 255);\n"
+"color:white;\n"
+"font:bold;\n"
+"padding: 5px;\n"
+"border-radius:15px;\n"
+"")
 
         self.titleLayout.addWidget(self.label)
 
@@ -43,16 +49,35 @@ class Ui_AddAttendanceWindow(object):
 
         self.confirmButton = QPushButton(self.centralwidget)
         self.confirmButton.setObjectName(u"confirmButton")
+        self.confirmButton.setStyleSheet(u"background-color: rgb(85, 170, 255);\n"
+"color:white;\n"
+"font:bold;\n"
+"padding: 6px;\n"
+"border-radius:14px;\n"
+"")
 
         self.titleLayout.addWidget(self.confirmButton)
 
         self.dateField = QComboBox(self.centralwidget)
         self.dateField.setObjectName(u"dateField")
+        self.dateField.setMouseTracking(False)
+        self.dateField.setStyleSheet(u"background-color: rgb(85, 170, 255);\n"
+"color:white;\n"
+"font:bold;\n"
+"padding: 6px;\n"
+"border-radius:14px;\n"
+"")
 
         self.titleLayout.addWidget(self.dateField)
 
         self.uploadButton = QPushButton(self.centralwidget)
         self.uploadButton.setObjectName(u"uploadButton")
+        self.uploadButton.setStyleSheet(u"background-color: rgb(85, 170, 255);\n"
+"color:white;\n"
+"font:bold;\n"
+"padding: 6px;\n"
+"border-radius:14px;\n"
+"")
 
         self.titleLayout.addWidget(self.uploadButton)
 

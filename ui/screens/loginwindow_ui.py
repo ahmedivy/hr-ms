@@ -23,7 +23,8 @@ class Ui_LoginWindow(object):
     def setupUi(self, LoginWindow):
         if not LoginWindow.objectName():
             LoginWindow.setObjectName(u"LoginWindow")
-        LoginWindow.resize(563, 734)
+        LoginWindow.resize(563, 475)
+        LoginWindow.setStyleSheet(u"background-color:#04395e;")
         self.centralwidget = QWidget(LoginWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout_2 = QVBoxLayout(self.centralwidget)
@@ -37,8 +38,17 @@ class Ui_LoginWindow(object):
         self.label = QLabel(self.frame)
         self.label.setObjectName(u"label")
         font = QFont()
-        font.setPointSize(25)
+        font.setBold(True)
+        font.setItalic(False)
         self.label.setFont(font)
+        self.label.setStyleSheet(u"text-transform:uppercase;\n"
+"font-size: 20px;\n"
+"background-color: #004e89;\n"
+"color:#FFFAFB;\n"
+"font:bold;\n"
+"border-radius:15px;\n"
+"margin: 20px;\n"
+"")
         self.label.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout.addWidget(self.label)
@@ -58,12 +68,25 @@ class Ui_LoginWindow(object):
         font1 = QFont()
         font1.setPointSize(12)
         self.usernameField.setFont(font1)
+        self.usernameField.setStyleSheet(u"margin: 3px 0;\n"
+"border-radius:10px;\n"
+"width:250px;\n"
+"height: 25px;\n"
+"background-color:#FFFAFB;\n"
+"padding:7px;\n"
+"margin: 0 20px;")
 
         self.verticalLayout.addWidget(self.usernameField)
 
         self.lineEdit_2 = QLineEdit(self.frame_2)
         self.lineEdit_2.setObjectName(u"lineEdit_2")
         self.lineEdit_2.setFont(font1)
+        self.lineEdit_2.setStyleSheet(u"margin: 3px 0;border-radius:10px;\n"
+"width:250px;\n"
+"height: 25px;\n"
+"background-color:#FFFAFB;\n"
+"padding:7px;\n"
+"margin: 0 20px;")
         self.lineEdit_2.setEchoMode(QLineEdit.Password)
 
         self.verticalLayout.addWidget(self.lineEdit_2)
@@ -90,7 +113,27 @@ class Ui_LoginWindow(object):
         self.pushButton.setSizePolicy(sizePolicy)
         font2 = QFont()
         font2.setPointSize(14)
+        font2.setBold(True)
+        font2.setItalic(False)
         self.pushButton.setFont(font2)
+        self.pushButton.setStyleSheet(u"QPushButton{\n"
+"background-color: #274c77;\n"
+"color:#FFFAFB;\n"
+"font:bold;\n"
+"padding: 5px;\n"
+"border-radius:7px;\n"
+"width: 100px;\n"
+"height:25px;\n"
+"margin-right:15px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+" background-color: #4cc9f0;\n"
+" color:black;\n"
+"font:bold;\n"
+"padding: 5px;\n"
+"border-radius:7px;\n"
+"}")
 
         self.horizontalLayout_2.addWidget(self.pushButton)
 

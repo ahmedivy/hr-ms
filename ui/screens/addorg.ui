@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>951</width>
-    <height>585</height>
+    <width>783</width>
+    <height>468</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:#04395e;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -47,8 +50,20 @@
          <widget class="QLabel" name="titleLabel">
           <property name="font">
            <font>
-            <pointsize>26</pointsize>
+            <pointsize>-1</pointsize>
+            <italic>false</italic>
+            <bold>true</bold>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font-size: 20px;
+background-color: #004e89;
+color:#FFFAFB;
+font:bold;
+border-radius:15px;
+min-height:60px;
+padding:0 auto;
+</string>
           </property>
           <property name="text">
            <string>Add New Organization</string>
@@ -63,8 +78,19 @@
          <widget class="QGroupBox" name="mainBox">
           <property name="font">
            <font>
-            <pointsize>12</pointsize>
+            <pointsize>-1</pointsize>
+            <italic>false</italic>
+            <bold>true</bold>
+            <underline>true</underline>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;
+</string>
           </property>
           <property name="title">
            <string>Organization Info</string>
@@ -126,23 +152,67 @@
               </widget>
              </item>
              <item row="0" column="1">
-              <widget class="QLineEdit" name="nameField"/>
+              <widget class="QLineEdit" name="nameField">
+               <property name="styleSheet">
+                <string notr="true">margin: 3px 0;border-radius:10px;
+max-width:250px;
+height: 25px;
+background-color:#FFFAFB;
+padding:0 5px;
+color:#131515;</string>
+               </property>
+              </widget>
              </item>
              <item row="2" column="1">
-              <widget class="QLineEdit" name="phoneField"/>
+              <widget class="QLineEdit" name="phoneField">
+               <property name="styleSheet">
+                <string notr="true">margin: 3px 0;border-radius:10px;
+max-width:250px;
+height: 25px;
+background-color:#FFFAFB;
+padding:0 5px;
+color:#131515;</string>
+               </property>
+              </widget>
              </item>
              <item row="3" column="1">
               <widget class="QLineEdit" name="emailField">
                <property name="toolTip">
                 <string>Organization's Email Address</string>
                </property>
+               <property name="styleSheet">
+                <string notr="true">margin: 3px 0;border-radius:10px;
+max-width:250px;
+height: 25px;
+background-color:#FFFAFB;
+padding:0 5px;
+color:#131515;</string>
+               </property>
               </widget>
              </item>
              <item row="4" column="1">
-              <widget class="QLineEdit" name="websiteField"/>
+              <widget class="QLineEdit" name="websiteField">
+               <property name="styleSheet">
+                <string notr="true">margin: 3px 0;border-radius:10px;
+max-width:250px;
+height: 25px;
+background-color:#FFFAFB;
+padding:0 5px;
+color:#131515;</string>
+               </property>
+              </widget>
              </item>
              <item row="1" column="1">
-              <widget class="QComboBox" name="typeField"/>
+              <widget class="QComboBox" name="typeField">
+               <property name="styleSheet">
+                <string notr="true">margin: 3px 0;border-radius:10px;
+max-width:250px;
+height: 25px;
+background-color:#FFFAFB;
+padding:0 5px;
+color:#131515;</string>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>
@@ -153,8 +223,18 @@
          <widget class="QGroupBox" name="addressBox">
           <property name="font">
            <font>
-            <pointsize>12</pointsize>
+            <pointsize>-1</pointsize>
+            <italic>false</italic>
+            <bold>true</bold>
+            <underline>true</underline>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
           </property>
           <property name="title">
            <string>Organization Address</string>
@@ -219,19 +299,64 @@
               </widget>
              </item>
              <item row="0" column="1">
-              <widget class="QLineEdit" name="streetField"/>
+              <widget class="QLineEdit" name="streetField">
+               <property name="styleSheet">
+                <string notr="true">margin: 3px 0;border-radius:10px;
+max-width:250px;
+height: 25px;
+background-color:#FFFAFB;
+padding:0 5px;
+color:#131515;</string>
+               </property>
+              </widget>
              </item>
              <item row="1" column="1">
-              <widget class="QLineEdit" name="cityField"/>
+              <widget class="QLineEdit" name="cityField">
+               <property name="styleSheet">
+                <string notr="true">margin: 3px 0;border-radius:10px;
+max-width:250px;
+height: 25px;
+background-color:#FFFAFB;
+padding:0 5px;
+color:#131515;</string>
+               </property>
+              </widget>
              </item>
              <item row="2" column="1">
-              <widget class="QLineEdit" name="stateField"/>
+              <widget class="QLineEdit" name="stateField">
+               <property name="styleSheet">
+                <string notr="true">margin: 3px 0;border-radius:10px;
+max-width:250px;
+height: 25px;
+background-color:#FFFAFB;
+padding:0 5px;
+color:#131515;</string>
+               </property>
+              </widget>
              </item>
              <item row="3" column="1">
-              <widget class="QLineEdit" name="countryField"/>
+              <widget class="QLineEdit" name="countryField">
+               <property name="styleSheet">
+                <string notr="true">margin: 3px 0;border-radius:10px;
+max-width:250px;
+height: 25px;
+background-color:#FFFAFB;
+padding:0 5px;
+color:#131515;</string>
+               </property>
+              </widget>
              </item>
              <item row="4" column="1">
-              <widget class="QLineEdit" name="zipField"/>
+              <widget class="QLineEdit" name="zipField">
+               <property name="styleSheet">
+                <string notr="true">margin: 3px 0;border-radius:10px;
+max-width:250px;
+height: 25px;
+background-color:#FFFAFB;
+padding:0 5px;
+color:#131515;</string>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>
@@ -273,7 +398,30 @@
           <property name="font">
            <font>
             <pointsize>11</pointsize>
+            <italic>false</italic>
+            <bold>true</bold>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+background-color: #274c77;
+color:#FFFAFB;
+font:bold;
+padding: 5px;
+border-radius:7px;
+width: 100px;
+margin-right:15px;
+height: 25px;
+}
+
+QPushButton:hover {
+  background-color: #4cc9f0;
+  color:black;
+font:bold;
+padding: 5px;
+border-radius:7px;
+}
+</string>
           </property>
           <property name="text">
            <string>Add</string>
@@ -285,7 +433,30 @@
           <property name="font">
            <font>
             <pointsize>11</pointsize>
+            <italic>false</italic>
+            <bold>true</bold>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+background-color: #274c77;
+color:#FFFAFB;
+font:bold;
+padding: 5px;
+border-radius:7px;
+width: 100px;
+margin-right:15px;
+height: 25px;
+}
+
+QPushButton:hover {
+  background-color: #4cc9f0;
+  color:black;
+font:bold;
+padding: 5px;
+border-radius:7px;
+}
+</string>
           </property>
           <property name="text">
            <string>Cancel</string>

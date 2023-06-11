@@ -6,28 +6,24 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>945</width>
-    <height>749</height>
+    <width>744</width>
+    <height>491</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:#04395e;</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <layout class="QVBoxLayout" name="mainLayout" stretch="2,10">
+     <layout class="QVBoxLayout" name="mainLayout" stretch="0,10">
       <item>
-       <layout class="QHBoxLayout" name="titleLayout">
-        <item>
-         <widget class="QLabel" name="label">
-          <property name="text">
-           <string>Attendance Details</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer">
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0">
+         <spacer name="horizontalSpacer_2">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -39,8 +35,59 @@
           </property>
          </spacer>
         </item>
-        <item>
-         <widget class="QLineEdit" name="dateField"/>
+        <item row="0" column="2">
+         <spacer name="horizontalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="3">
+         <widget class="QLineEdit" name="dateField">
+          <property name="styleSheet">
+           <string notr="true">margin: 3px 0;border-radius:10px;
+width:300px;
+height: 25px;
+background-color:#FFFAFB;
+padding: 3px;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="label">
+          <property name="styleSheet">
+           <string notr="true">font-size: 20px;
+background-color: #004e89;
+color:#FFFAFB;
+font:bold;
+border-radius:15px;
+min-height:70px;
+padding:10px;
+margin:0 10px;</string>
+          </property>
+          <property name="text">
+           <string>Attendance Details</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="4">
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
         </item>
        </layout>
       </item>

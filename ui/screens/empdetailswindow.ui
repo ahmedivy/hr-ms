@@ -7,12 +7,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>582</width>
-    <height>764</height>
+    <width>508</width>
+    <height>732</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:#04395e;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
@@ -36,8 +39,19 @@
          <widget class="QLabel" name="nameLabel">
           <property name="font">
            <font>
-            <pointsize>24</pointsize>
+            <pointsize>-1</pointsize>
+            <italic>false</italic>
+            <bold>true</bold>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font-size: 20px;
+background-color: #004e89;
+color:#FFFAFB;
+font:bold;
+padding: 0 5px;
+border-radius:10px;
+</string>
           </property>
           <property name="text">
            <string>Ahmed Abdullah</string>
@@ -59,6 +73,26 @@
         </item>
         <item>
          <widget class="QPushButton" name="editButton">
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+background-color: #274c77;
+color:#FFFAFB;
+font:bold;
+padding: 5px;
+border-radius:7px;
+width: 100px;
+height:25px;
+margin-right:15px;
+}
+
+QPushButton:hover {
+ background-color: #4cc9f0;
+ color:black;
+font:bold;
+padding: 5px;
+border-radius:7px;
+}</string>
+          </property>
           <property name="text">
            <string>Edit</string>
           </property>
@@ -66,6 +100,26 @@
         </item>
         <item>
          <widget class="QPushButton" name="deleteButton">
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+background-color: #274c77;
+color:#FFFAFB;
+font:bold;
+padding: 5px;
+border-radius:7px;
+width: 100px;
+height:25px;
+margin-right:15px;
+}
+
+QPushButton:hover {
+ background-color: #4cc9f0;
+ color:black;
+font:bold;
+padding: 5px;
+border-radius:7px;
+}</string>
+          </property>
           <property name="text">
            <string>Delete</string>
           </property>
@@ -95,163 +149,387 @@
         </property>
         <item row="0" column="0">
          <widget class="QLabel" name="codeLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
           <property name="text">
            <string>Employee Code</string>
           </property>
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QLineEdit" name="codeField"/>
+         <widget class="QLineEdit" name="codeField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
         </item>
         <item row="1" column="0">
          <widget class="QLabel" name="fnameLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
           <property name="text">
            <string>First Name</string>
           </property>
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QLineEdit" name="fnameField"/>
+         <widget class="QLineEdit" name="fnameField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
         </item>
         <item row="2" column="0">
          <widget class="QLabel" name="lnameLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
           <property name="text">
            <string>Last Name</string>
           </property>
          </widget>
         </item>
         <item row="2" column="1">
-         <widget class="QLineEdit" name="lnameField"/>
+         <widget class="QLineEdit" name="lnameField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
         </item>
         <item row="3" column="0">
          <widget class="QLabel" name="orgLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
           <property name="text">
            <string>Organization</string>
           </property>
          </widget>
         </item>
         <item row="3" column="1">
-         <widget class="QComboBox" name="orgField"/>
+         <widget class="QComboBox" name="orgField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
         </item>
         <item row="4" column="0">
          <widget class="QLabel" name="posLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
           <property name="text">
            <string>Position</string>
           </property>
          </widget>
         </item>
         <item row="4" column="1">
-         <widget class="QLineEdit" name="posField"/>
+         <widget class="QLineEdit" name="posField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
         </item>
         <item row="5" column="0">
          <widget class="QLabel" name="cnicLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
           <property name="text">
            <string>CNIC</string>
           </property>
          </widget>
         </item>
         <item row="5" column="1">
-         <widget class="QLineEdit" name="cnicField"/>
+         <widget class="QLineEdit" name="cnicField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
         </item>
         <item row="6" column="0">
          <widget class="QLabel" name="hireDateLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
           <property name="text">
            <string>Hire Date</string>
           </property>
          </widget>
         </item>
         <item row="6" column="1">
-         <widget class="QDateEdit" name="hireDateField"/>
+         <widget class="QDateEdit" name="hireDateField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
         </item>
         <item row="7" column="0">
          <widget class="QLabel" name="terminationDateLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
           <property name="text">
            <string>Termination Date</string>
           </property>
          </widget>
         </item>
         <item row="7" column="1">
-         <widget class="QLineEdit" name="terminationDateField"/>
+         <widget class="QLineEdit" name="terminationDateField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
         </item>
         <item row="8" column="0">
          <widget class="QLabel" name="rateLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
           <property name="text">
            <string>Hourly Rate</string>
           </property>
          </widget>
         </item>
         <item row="8" column="1">
-         <widget class="QDoubleSpinBox" name="rateField"/>
+         <widget class="QDoubleSpinBox" name="rateField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
         </item>
         <item row="9" column="0">
          <widget class="QLabel" name="emailLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
           <property name="text">
            <string>Email</string>
           </property>
          </widget>
         </item>
         <item row="9" column="1">
-         <widget class="QLineEdit" name="emailField"/>
+         <widget class="QLineEdit" name="emailField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
         </item>
         <item row="10" column="0">
          <widget class="QLabel" name="numberLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
           <property name="text">
            <string>Phone Number</string>
           </property>
          </widget>
         </item>
         <item row="10" column="1">
-         <widget class="QLineEdit" name="phoneField"/>
+         <widget class="QLineEdit" name="phoneField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
         </item>
         <item row="11" column="0">
          <widget class="QLabel" name="streetLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
           <property name="text">
            <string>Street Address</string>
           </property>
          </widget>
         </item>
         <item row="11" column="1">
-         <widget class="QLineEdit" name="streetField"/>
+         <widget class="QLineEdit" name="streetField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
         </item>
         <item row="12" column="0">
          <widget class="QLabel" name="cityLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
           <property name="text">
            <string>City</string>
           </property>
          </widget>
         </item>
         <item row="12" column="1">
-         <widget class="QLineEdit" name="cityField"/>
+         <widget class="QLineEdit" name="cityField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
         </item>
         <item row="13" column="0">
          <widget class="QLabel" name="stateLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
           <property name="text">
            <string>State</string>
           </property>
          </widget>
         </item>
         <item row="13" column="1">
-         <widget class="QLineEdit" name="stateField"/>
+         <widget class="QLineEdit" name="stateField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
         </item>
         <item row="14" column="0">
          <widget class="QLabel" name="zipLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
           <property name="text">
            <string>Zip Code</string>
           </property>
          </widget>
         </item>
         <item row="14" column="1">
-         <widget class="QLineEdit" name="zipField"/>
+         <widget class="QLineEdit" name="zipField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
         </item>
         <item row="15" column="0">
          <widget class="QLabel" name="countryLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
           <property name="text">
            <string>Country</string>
           </property>
          </widget>
         </item>
         <item row="15" column="1">
-         <widget class="QLineEdit" name="countryField"/>
+         <widget class="QLineEdit" name="countryField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>

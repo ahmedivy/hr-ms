@@ -15,39 +15,61 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QHBoxLayout, QHeaderView, QLabel,
-    QLineEdit, QMainWindow, QSizePolicy, QSpacerItem,
-    QTableView, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QHeaderView,
+    QLabel, QLineEdit, QMainWindow, QSizePolicy,
+    QSpacerItem, QTableView, QVBoxLayout, QWidget)
 
 class Ui_AttendanceDetailsWindow(object):
     def setupUi(self, AttendanceDetailsWindow):
         if not AttendanceDetailsWindow.objectName():
             AttendanceDetailsWindow.setObjectName(u"AttendanceDetailsWindow")
-        AttendanceDetailsWindow.resize(945, 749)
+        AttendanceDetailsWindow.resize(744, 491)
+        AttendanceDetailsWindow.setStyleSheet(u"background-color:#04395e;")
         self.centralwidget = QWidget(AttendanceDetailsWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.horizontalLayout = QHBoxLayout(self.centralwidget)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.mainLayout = QVBoxLayout()
         self.mainLayout.setObjectName(u"mainLayout")
-        self.titleLayout = QHBoxLayout()
-        self.titleLayout.setObjectName(u"titleLayout")
-        self.label = QLabel(self.centralwidget)
-        self.label.setObjectName(u"label")
+        self.gridLayout = QGridLayout()
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.titleLayout.addWidget(self.label)
+        self.gridLayout.addItem(self.horizontalSpacer_2, 0, 0, 1, 1)
 
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.titleLayout.addItem(self.horizontalSpacer)
+        self.gridLayout.addItem(self.horizontalSpacer_3, 0, 2, 1, 1)
 
         self.dateField = QLineEdit(self.centralwidget)
         self.dateField.setObjectName(u"dateField")
+        self.dateField.setStyleSheet(u"margin: 3px 0;border-radius:10px;\n"
+"width:300px;\n"
+"height: 25px;\n"
+"background-color:#FFFAFB;\n"
+"padding: 3px;")
 
-        self.titleLayout.addWidget(self.dateField)
+        self.gridLayout.addWidget(self.dateField, 0, 3, 1, 1)
+
+        self.label = QLabel(self.centralwidget)
+        self.label.setObjectName(u"label")
+        self.label.setStyleSheet(u"font-size: 20px;\n"
+"background-color: #004e89;\n"
+"color:#FFFAFB;\n"
+"font:bold;\n"
+"border-radius:15px;\n"
+"min-height:70px;\n"
+"padding:10px;\n"
+"margin:0 10px;")
+
+        self.gridLayout.addWidget(self.label, 0, 1, 1, 1)
+
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer, 0, 4, 1, 1)
 
 
-        self.mainLayout.addLayout(self.titleLayout)
+        self.mainLayout.addLayout(self.gridLayout)
 
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -59,7 +81,6 @@ class Ui_AttendanceDetailsWindow(object):
 
         self.mainLayout.addLayout(self.verticalLayout)
 
-        self.mainLayout.setStretch(0, 2)
         self.mainLayout.setStretch(1, 10)
 
         self.horizontalLayout.addLayout(self.mainLayout)

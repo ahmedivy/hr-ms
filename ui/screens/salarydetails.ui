@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>829</width>
-    <height>733</height>
+    <width>682</width>
+    <height>575</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:#04395e;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
@@ -23,6 +26,16 @@
          <layout class="QHBoxLayout" name="titleBar">
           <item>
            <widget class="QLabel" name="label">
+            <property name="styleSheet">
+             <string notr="true">font-size: 20px;
+background-color: #004e89;
+color:#FFFAFB;
+font:bold;
+border-radius:15px;
+padding: 10px;
+margin:0 20px;
+</string>
+            </property>
             <property name="text">
              <string>Salary Details</string>
             </property>
@@ -33,20 +46,15 @@
         <item>
          <layout class="QHBoxLayout" name="filterBar">
           <item>
-           <spacer name="horizontalSpacer">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+           <widget class="QLineEdit" name="monthField">
+            <property name="styleSheet">
+             <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+max-width:600px;
+height: 30px;
+margin: 3px 0;</string>
             </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="monthField"/>
+           </widget>
           </item>
          </layout>
         </item>

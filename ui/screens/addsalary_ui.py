@@ -15,7 +15,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QFormLayout, QHBoxLayout,
+from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout,
     QLabel, QLineEdit, QMainWindow, QPushButton,
     QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
 
@@ -23,7 +23,8 @@ class Ui_AddSalaryWindow(object):
     def setupUi(self, AddSalaryWindow):
         if not AddSalaryWindow.objectName():
             AddSalaryWindow.setObjectName(u"AddSalaryWindow")
-        AddSalaryWindow.resize(521, 672)
+        AddSalaryWindow.resize(586, 425)
+        AddSalaryWindow.setStyleSheet(u"background-color:#04395e;")
         self.centralwidget = QWidget(AddSalaryWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.horizontalLayout = QHBoxLayout(self.centralwidget)
@@ -35,63 +36,122 @@ class Ui_AddSalaryWindow(object):
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
         font = QFont()
-        font.setPointSize(26)
+        font.setBold(True)
+        font.setItalic(False)
         self.label.setFont(font)
         self.label.setLayoutDirection(Qt.LeftToRight)
         self.label.setAutoFillBackground(False)
-        self.label.setStyleSheet(u"text-align: center")
+        self.label.setStyleSheet(u"font-size: 20px;\n"
+"background-color: #004e89;\n"
+"color:#FFFAFB;\n"
+"font:bold;\n"
+"border-radius:15px;\n"
+"padding: 0 auto;\n"
+"margin: 0 20px;\n"
+"max-height:80px;\n"
+"max-width:420px;\n"
+"text-transform:uppercase;\n"
+"\n"
+"\n"
+"\n"
+"")
 
         self.titleLayout.addWidget(self.label)
 
 
         self.mainLayout.addLayout(self.titleLayout)
 
-        self.formLayout = QFormLayout()
-        self.formLayout.setObjectName(u"formLayout")
-        self.formLayout.setVerticalSpacing(10)
-        self.formLayout.setContentsMargins(20, 30, 20, 20)
+        self.gridLayout = QGridLayout()
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setVerticalSpacing(10)
+        self.gridLayout.setContentsMargins(20, 30, 20, 20)
         self.label_2 = QLabel(self.centralwidget)
         self.label_2.setObjectName(u"label_2")
+        self.label_2.setStyleSheet(u"font:bold;\n"
+"color: #FFFAFB;\n"
+"text-transform:uppercase;\n"
+"text-decoration:underline;\n"
+"font-size:13px;\n"
+"margin: 0 20px;")
 
-        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.label_2)
-
-        self.label_3 = QLabel(self.centralwidget)
-        self.label_3.setObjectName(u"label_3")
-
-        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.label_3)
-
-        self.label_4 = QLabel(self.centralwidget)
-        self.label_4.setObjectName(u"label_4")
-
-        self.formLayout.setWidget(2, QFormLayout.LabelRole, self.label_4)
-
-        self.label_5 = QLabel(self.centralwidget)
-        self.label_5.setObjectName(u"label_5")
-
-        self.formLayout.setWidget(3, QFormLayout.LabelRole, self.label_5)
-
-        self.descField = QLineEdit(self.centralwidget)
-        self.descField.setObjectName(u"descField")
-
-        self.formLayout.setWidget(3, QFormLayout.FieldRole, self.descField)
-
-        self.monthField = QComboBox(self.centralwidget)
-        self.monthField.setObjectName(u"monthField")
-
-        self.formLayout.setWidget(1, QFormLayout.FieldRole, self.monthField)
-
-        self.yearField = QComboBox(self.centralwidget)
-        self.yearField.setObjectName(u"yearField")
-
-        self.formLayout.setWidget(2, QFormLayout.FieldRole, self.yearField)
+        self.gridLayout.addWidget(self.label_2, 0, 0, 1, 1)
 
         self.orgField = QComboBox(self.centralwidget)
         self.orgField.setObjectName(u"orgField")
+        self.orgField.setStyleSheet(u"margin: 3px 0;\n"
+"border-radius:10px;\n"
+"max-width:250px;\n"
+"height: 25px;\n"
+"background-color:#FFFAFB;\n"
+"")
 
-        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.orgField)
+        self.gridLayout.addWidget(self.orgField, 0, 1, 1, 1)
+
+        self.label_3 = QLabel(self.centralwidget)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setStyleSheet(u"font:bold;\n"
+"color: #FFFAFB;\n"
+"text-transform:uppercase;\n"
+"text-decoration:underline;\n"
+"font-size:13px;\n"
+"margin: 0 20px;")
+
+        self.gridLayout.addWidget(self.label_3, 1, 0, 1, 1)
+
+        self.monthField = QComboBox(self.centralwidget)
+        self.monthField.setObjectName(u"monthField")
+        self.monthField.setStyleSheet(u"margin: 3px 0;\n"
+"border-radius:10px;\n"
+"max-width:250px;\n"
+"height: 25px;\n"
+"background-color:#FFFAFB;")
+
+        self.gridLayout.addWidget(self.monthField, 1, 1, 1, 1)
+
+        self.label_4 = QLabel(self.centralwidget)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setStyleSheet(u"font:bold;\n"
+"color: #FFFAFB;\n"
+"text-transform:uppercase;\n"
+"text-decoration:underline;\n"
+"font-size:13px;\n"
+"margin: 0 20px;")
+
+        self.gridLayout.addWidget(self.label_4, 2, 0, 1, 1)
+
+        self.yearField = QComboBox(self.centralwidget)
+        self.yearField.setObjectName(u"yearField")
+        self.yearField.setStyleSheet(u"margin: 3px 0;\n"
+"border-radius:10px;\n"
+"max-width:250px;\n"
+"height: 25px;\n"
+"background-color:#FFFAFB;")
+
+        self.gridLayout.addWidget(self.yearField, 2, 1, 1, 1)
+
+        self.label_5 = QLabel(self.centralwidget)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setStyleSheet(u"font:bold;\n"
+"color: #FFFAFB;\n"
+"text-transform:uppercase;\n"
+"text-decoration:underline;\n"
+"font-size:13px;\n"
+"margin: 0 20px;")
+
+        self.gridLayout.addWidget(self.label_5, 3, 0, 1, 1)
+
+        self.descField = QLineEdit(self.centralwidget)
+        self.descField.setObjectName(u"descField")
+        self.descField.setStyleSheet(u"margin: 3px 0;\n"
+"border-radius:10px;\n"
+"max-width:250px;\n"
+"height: 25px;\n"
+"background-color:#FFFAFB;")
+
+        self.gridLayout.addWidget(self.descField, 3, 1, 1, 1)
 
 
-        self.mainLayout.addLayout(self.formLayout)
+        self.mainLayout.addLayout(self.gridLayout)
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
@@ -101,11 +161,49 @@ class Ui_AddSalaryWindow(object):
 
         self.confirmButton = QPushButton(self.centralwidget)
         self.confirmButton.setObjectName(u"confirmButton")
+        self.confirmButton.setStyleSheet(u"QPushButton{\n"
+"background-color: #274c77;\n"
+"color:#FFFAFB;\n"
+"font:bold;\n"
+"padding: 5px;\n"
+"border-radius:7px;\n"
+"width: 100px;\n"
+"margin-right:15px;\n"
+"height: 25px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"  background-color: #4cc9f0;\n"
+"  color:black;\n"
+"font:bold;\n"
+"padding: 5px;\n"
+"border-radius:7px;\n"
+"}\n"
+"")
 
         self.horizontalLayout_2.addWidget(self.confirmButton)
 
         self.cancelButton = QPushButton(self.centralwidget)
         self.cancelButton.setObjectName(u"cancelButton")
+        self.cancelButton.setStyleSheet(u"QPushButton{\n"
+"background-color: #274c77;\n"
+"color:#FFFAFB;\n"
+"font:bold;\n"
+"padding: 5px;\n"
+"border-radius:7px;\n"
+"width: 100px;\n"
+"margin-right:15px;\n"
+"height: 25px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"  background-color: #4cc9f0;\n"
+"  color:black;\n"
+"font:bold;\n"
+"padding: 5px;\n"
+"border-radius:7px;\n"
+"}\n"
+"")
 
         self.horizontalLayout_2.addWidget(self.cancelButton)
 
@@ -127,7 +225,7 @@ class Ui_AddSalaryWindow(object):
 
     def retranslateUi(self, AddSalaryWindow):
         AddSalaryWindow.setWindowTitle(QCoreApplication.translate("AddSalaryWindow", u"MainWindow", None))
-        self.label.setText(QCoreApplication.translate("AddSalaryWindow", u"Generate Salary Sheet", None))
+        self.label.setText(QCoreApplication.translate("AddSalaryWindow", u"Generate Salary Slip", None))
         self.label_2.setText(QCoreApplication.translate("AddSalaryWindow", u"Organization", None))
         self.label_3.setText(QCoreApplication.translate("AddSalaryWindow", u"Salary Month", None))
         self.label_4.setText(QCoreApplication.translate("AddSalaryWindow", u"Salary Year", None))

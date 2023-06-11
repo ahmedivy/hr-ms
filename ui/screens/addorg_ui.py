@@ -24,7 +24,8 @@ class Ui_AddOrgWindow(object):
     def setupUi(self, AddOrgWindow):
         if not AddOrgWindow.objectName():
             AddOrgWindow.setObjectName(u"AddOrgWindow")
-        AddOrgWindow.resize(951, 585)
+        AddOrgWindow.resize(783, 468)
+        AddOrgWindow.setStyleSheet(u"background-color:#04395e;")
         self.centralwidget = QWidget(AddOrgWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout_2 = QVBoxLayout(self.centralwidget)
@@ -38,8 +39,17 @@ class Ui_AddOrgWindow(object):
         self.titleLabel = QLabel(self.centralwidget)
         self.titleLabel.setObjectName(u"titleLabel")
         font = QFont()
-        font.setPointSize(26)
+        font.setBold(True)
+        font.setItalic(False)
         self.titleLabel.setFont(font)
+        self.titleLabel.setStyleSheet(u"font-size: 20px;\n"
+"background-color: #004e89;\n"
+"color:#FFFAFB;\n"
+"font:bold;\n"
+"border-radius:15px;\n"
+"min-height:60px;\n"
+"padding:0 auto;\n"
+"")
 
         self.titleLayout.addWidget(self.titleLabel)
 
@@ -51,8 +61,16 @@ class Ui_AddOrgWindow(object):
         self.mainBox = QGroupBox(self.centralwidget)
         self.mainBox.setObjectName(u"mainBox")
         font1 = QFont()
-        font1.setPointSize(12)
+        font1.setBold(True)
+        font1.setItalic(False)
+        font1.setUnderline(True)
         self.mainBox.setFont(font1)
+        self.mainBox.setStyleSheet(u"font:bold;\n"
+"color: #FFFAFB;\n"
+"text-transform:uppercase;\n"
+"text-decoration:underline;\n"
+"font-size:13px;\n"
+"")
         self.horizontalLayout_2 = QHBoxLayout(self.mainBox)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.mainForm = QFormLayout()
@@ -87,26 +105,56 @@ class Ui_AddOrgWindow(object):
 
         self.nameField = QLineEdit(self.mainBox)
         self.nameField.setObjectName(u"nameField")
+        self.nameField.setStyleSheet(u"margin: 3px 0;border-radius:10px;\n"
+"max-width:250px;\n"
+"height: 25px;\n"
+"background-color:#FFFAFB;\n"
+"padding:0 5px;\n"
+"color:#131515;")
 
         self.mainForm.setWidget(0, QFormLayout.FieldRole, self.nameField)
 
         self.phoneField = QLineEdit(self.mainBox)
         self.phoneField.setObjectName(u"phoneField")
+        self.phoneField.setStyleSheet(u"margin: 3px 0;border-radius:10px;\n"
+"max-width:250px;\n"
+"height: 25px;\n"
+"background-color:#FFFAFB;\n"
+"padding:0 5px;\n"
+"color:#131515;")
 
         self.mainForm.setWidget(2, QFormLayout.FieldRole, self.phoneField)
 
         self.emailField = QLineEdit(self.mainBox)
         self.emailField.setObjectName(u"emailField")
+        self.emailField.setStyleSheet(u"margin: 3px 0;border-radius:10px;\n"
+"max-width:250px;\n"
+"height: 25px;\n"
+"background-color:#FFFAFB;\n"
+"padding:0 5px;\n"
+"color:#131515;")
 
         self.mainForm.setWidget(3, QFormLayout.FieldRole, self.emailField)
 
         self.websiteField = QLineEdit(self.mainBox)
         self.websiteField.setObjectName(u"websiteField")
+        self.websiteField.setStyleSheet(u"margin: 3px 0;border-radius:10px;\n"
+"max-width:250px;\n"
+"height: 25px;\n"
+"background-color:#FFFAFB;\n"
+"padding:0 5px;\n"
+"color:#131515;")
 
         self.mainForm.setWidget(4, QFormLayout.FieldRole, self.websiteField)
 
         self.typeField = QComboBox(self.mainBox)
         self.typeField.setObjectName(u"typeField")
+        self.typeField.setStyleSheet(u"margin: 3px 0;border-radius:10px;\n"
+"max-width:250px;\n"
+"height: 25px;\n"
+"background-color:#FFFAFB;\n"
+"padding:0 5px;\n"
+"color:#131515;")
 
         self.mainForm.setWidget(1, QFormLayout.FieldRole, self.typeField)
 
@@ -119,6 +167,11 @@ class Ui_AddOrgWindow(object):
         self.addressBox = QGroupBox(self.centralwidget)
         self.addressBox.setObjectName(u"addressBox")
         self.addressBox.setFont(font1)
+        self.addressBox.setStyleSheet(u"font:bold;\n"
+"color: #FFFAFB;\n"
+"text-transform:uppercase;\n"
+"text-decoration:underline;\n"
+"font-size:13px;")
         self.horizontalLayout_3 = QHBoxLayout(self.addressBox)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalLayout_3.setSizeConstraint(QLayout.SetDefaultConstraint)
@@ -154,26 +207,56 @@ class Ui_AddOrgWindow(object):
 
         self.streetField = QLineEdit(self.addressBox)
         self.streetField.setObjectName(u"streetField")
+        self.streetField.setStyleSheet(u"margin: 3px 0;border-radius:10px;\n"
+"max-width:250px;\n"
+"height: 25px;\n"
+"background-color:#FFFAFB;\n"
+"padding:0 5px;\n"
+"color:#131515;")
 
         self.addressForm.setWidget(0, QFormLayout.FieldRole, self.streetField)
 
         self.cityField = QLineEdit(self.addressBox)
         self.cityField.setObjectName(u"cityField")
+        self.cityField.setStyleSheet(u"margin: 3px 0;border-radius:10px;\n"
+"max-width:250px;\n"
+"height: 25px;\n"
+"background-color:#FFFAFB;\n"
+"padding:0 5px;\n"
+"color:#131515;")
 
         self.addressForm.setWidget(1, QFormLayout.FieldRole, self.cityField)
 
         self.stateField = QLineEdit(self.addressBox)
         self.stateField.setObjectName(u"stateField")
+        self.stateField.setStyleSheet(u"margin: 3px 0;border-radius:10px;\n"
+"max-width:250px;\n"
+"height: 25px;\n"
+"background-color:#FFFAFB;\n"
+"padding:0 5px;\n"
+"color:#131515;")
 
         self.addressForm.setWidget(2, QFormLayout.FieldRole, self.stateField)
 
         self.countryField = QLineEdit(self.addressBox)
         self.countryField.setObjectName(u"countryField")
+        self.countryField.setStyleSheet(u"margin: 3px 0;border-radius:10px;\n"
+"max-width:250px;\n"
+"height: 25px;\n"
+"background-color:#FFFAFB;\n"
+"padding:0 5px;\n"
+"color:#131515;")
 
         self.addressForm.setWidget(3, QFormLayout.FieldRole, self.countryField)
 
         self.zipField = QLineEdit(self.addressBox)
         self.zipField.setObjectName(u"zipField")
+        self.zipField.setStyleSheet(u"margin: 3px 0;border-radius:10px;\n"
+"max-width:250px;\n"
+"height: 25px;\n"
+"background-color:#FFFAFB;\n"
+"padding:0 5px;\n"
+"color:#131515;")
 
         self.addressForm.setWidget(4, QFormLayout.FieldRole, self.zipField)
 
@@ -200,13 +283,53 @@ class Ui_AddOrgWindow(object):
         self.okButton.setObjectName(u"okButton")
         font2 = QFont()
         font2.setPointSize(11)
+        font2.setBold(True)
+        font2.setItalic(False)
         self.okButton.setFont(font2)
+        self.okButton.setStyleSheet(u"QPushButton{\n"
+"background-color: #274c77;\n"
+"color:#FFFAFB;\n"
+"font:bold;\n"
+"padding: 5px;\n"
+"border-radius:7px;\n"
+"width: 100px;\n"
+"margin-right:15px;\n"
+"height: 25px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"  background-color: #4cc9f0;\n"
+"  color:black;\n"
+"font:bold;\n"
+"padding: 5px;\n"
+"border-radius:7px;\n"
+"}\n"
+"")
 
         self.buttonsLayout.addWidget(self.okButton)
 
         self.cancelButton = QPushButton(self.centralwidget)
         self.cancelButton.setObjectName(u"cancelButton")
         self.cancelButton.setFont(font2)
+        self.cancelButton.setStyleSheet(u"QPushButton{\n"
+"background-color: #274c77;\n"
+"color:#FFFAFB;\n"
+"font:bold;\n"
+"padding: 5px;\n"
+"border-radius:7px;\n"
+"width: 100px;\n"
+"margin-right:15px;\n"
+"height: 25px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"  background-color: #4cc9f0;\n"
+"  color:black;\n"
+"font:bold;\n"
+"padding: 5px;\n"
+"border-radius:7px;\n"
+"}\n"
+"")
 
         self.buttonsLayout.addWidget(self.cancelButton)
 

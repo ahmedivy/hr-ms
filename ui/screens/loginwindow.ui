@@ -7,11 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>563</width>
-    <height>734</height>
+    <height>475</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:#04395e;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -28,8 +31,20 @@
         <widget class="QLabel" name="label">
          <property name="font">
           <font>
-           <pointsize>25</pointsize>
+           <pointsize>-1</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">text-transform:uppercase;
+font-size: 20px;
+background-color: #004e89;
+color:#FFFAFB;
+font:bold;
+border-radius:15px;
+margin: 20px;
+</string>
          </property>
          <property name="text">
           <string>Login to you Account</string>
@@ -64,6 +79,15 @@
          <property name="toolTip">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Username&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">margin: 3px 0;
+border-radius:10px;
+width:250px;
+height: 25px;
+background-color:#FFFAFB;
+padding:7px;
+margin: 0 20px;</string>
+         </property>
          <property name="placeholderText">
           <string>Username</string>
          </property>
@@ -78,6 +102,14 @@
          </property>
          <property name="toolTip">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Password&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">margin: 3px 0;border-radius:10px;
+width:250px;
+height: 25px;
+background-color:#FFFAFB;
+padding:7px;
+margin: 0 20px;</string>
          </property>
          <property name="echoMode">
           <enum>QLineEdit::Password</enum>
@@ -123,7 +155,29 @@
          <property name="font">
           <font>
            <pointsize>14</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+background-color: #274c77;
+color:#FFFAFB;
+font:bold;
+padding: 5px;
+border-radius:7px;
+width: 100px;
+height:25px;
+margin-right:15px;
+}
+
+QPushButton:hover {
+ background-color: #4cc9f0;
+ color:black;
+font:bold;
+padding: 5px;
+border-radius:7px;
+}</string>
          </property>
          <property name="text">
           <string>Login</string>

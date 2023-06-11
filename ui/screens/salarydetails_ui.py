@@ -16,14 +16,15 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QHBoxLayout, QHeaderView, QLabel,
-    QLineEdit, QMainWindow, QSizePolicy, QSpacerItem,
-    QTableView, QVBoxLayout, QWidget)
+    QLineEdit, QMainWindow, QSizePolicy, QTableView,
+    QVBoxLayout, QWidget)
 
 class Ui_SalaryDetailWindow(object):
     def setupUi(self, SalaryDetailWindow):
         if not SalaryDetailWindow.objectName():
             SalaryDetailWindow.setObjectName(u"SalaryDetailWindow")
-        SalaryDetailWindow.resize(829, 733)
+        SalaryDetailWindow.resize(682, 575)
+        SalaryDetailWindow.setStyleSheet(u"background-color:#04395e;")
         self.centralwidget = QWidget(SalaryDetailWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.horizontalLayout = QHBoxLayout(self.centralwidget)
@@ -36,6 +37,14 @@ class Ui_SalaryDetailWindow(object):
         self.titleBar.setObjectName(u"titleBar")
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
+        self.label.setStyleSheet(u"font-size: 20px;\n"
+"background-color: #004e89;\n"
+"color:#FFFAFB;\n"
+"font:bold;\n"
+"border-radius:15px;\n"
+"padding: 10px;\n"
+"margin:0 20px;\n"
+"")
 
         self.titleBar.addWidget(self.label)
 
@@ -44,12 +53,13 @@ class Ui_SalaryDetailWindow(object):
 
         self.filterBar = QHBoxLayout()
         self.filterBar.setObjectName(u"filterBar")
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.filterBar.addItem(self.horizontalSpacer)
-
         self.monthField = QLineEdit(self.centralwidget)
         self.monthField.setObjectName(u"monthField")
+        self.monthField.setStyleSheet(u"background-color:#FFFAFB;\n"
+"border-radius:10px;\n"
+"max-width:600px;\n"
+"height: 30px;\n"
+"margin: 3px 0;")
 
         self.filterBar.addWidget(self.monthField)
 
