@@ -18,7 +18,6 @@ class SalaryTableModel(QAbstractTableModel):
             "Total Gross Salary",
             "Total Deductions",
             "Total Net Salary",
-            "Organization",
             "Actions"
         ]
         
@@ -30,20 +29,18 @@ class SalaryTableModel(QAbstractTableModel):
     
     def data(self, index: QModelIndex, role: int = None):
         if role == Qt.DisplayRole:
-            _id, month_year, gross, deductions, net, org_name = self.salaries[index.row()]
+            _id, month_year, gross, deductions, net = self.salaries[index.row()]
         
             if index.column() == 0:
                 return _id
             elif index.column() == 1:
                 return month_year
             elif index.column() == 2:
-                return gross
+                return str(gross)
             elif index.column() == 3:
-                return deductions
+                return str(deductions)
             elif index.column() == 4:
-                return net
-            elif index.column() == 5:
-                return org_name
+                return str(net)
             
     def headerData(self, section: int, orientation: Qt.Orientation, role: int = None):
         if role == Qt.DisplayRole:
@@ -81,7 +78,7 @@ class SalaryWidget(QWidget):
         for ix in range(self.model.rowCount()):
             button = QPushButton("View")
             button.clicked.connect(self.handleDetails)
-            self.ui.tableView.setIndexWidget(self.model.index(ix, 6), button)
+            self.ui.tableView.setIndexWidget(self.model.index(ix, 5), button)
         
     def handleDetails(self):
         button = self.sender()

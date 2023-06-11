@@ -4,6 +4,7 @@ from PySide6.QtCore import Slot
 from PySide6.QtWidgets import QMainWindow, QMessageBox
 
 from core.database import cursor
+from views.salarydetails import SalaryDetailWindow
 from ui.screens.addsalary_ui import Ui_AddSalaryWindow
 
 
@@ -37,10 +38,24 @@ class AddSalaryWindow(QMainWindow):
             msg.setText("Error")
             msg.setInformativeText("Salary for the month and year already exists")
             msg.setWindowTitle("Error")
-            # Set size of the message box
-            # msg.setStyleSheet("QLabel{min-width:500 px; font-size: 24px;} QPushButton{ width:250px; font-size: 18px; }");
             msg.exec_()
             return
+        
+        stmt = f"EXEC GenerateMonthlySalary {_id}, '{month}', '{year}'"
+        cursor.execute(stmt)
+        cursor.commit()
+                
+        self.detailWindow = SalaryDetailWindow([_id, year, month])
+        self.detailWindow.show()
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -54,8 +69,9 @@ class AddSalaryWindow(QMainWindow):
         months = month_name[1:]
         years = [str(year) for year in range(2020, date.today().year + 1)]
         self.ui.yearField.addItems(years)
-        self.ui.monthField.addItems(months)
-        
+        for ix, month in enumerate(months, start=1):
+            self.ui.monthField.addItem(month, ix)
+            
         stmt = "SELECT org_id, org_name FROM organizations"
         cursor.execute(stmt)
         

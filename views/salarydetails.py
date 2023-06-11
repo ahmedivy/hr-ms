@@ -13,8 +13,7 @@ class SalaryDetailModel(QAbstractTableModel):
         self.header = [
             "Employee ID",
             "Employee Name",
-            "Organization",
-            "Salary",
+            "Gross Salary",
             "Deductions",
             "Net Salary"
         ]
@@ -35,11 +34,9 @@ class SalaryDetailModel(QAbstractTableModel):
             elif index.column() == 2:
                 return detail[2]
             elif index.column() == 3:
-                return detail[3]
-            elif index.column() == 4:
                 return detail[4]
-            elif index.column() == 5:
-                return detail[5]
+            elif index.column() == 4:
+                return detail[3]
             
     def headerData(self, section: int, orientation: Qt.Orientation, role: int = None):
         if role == Qt.DisplayRole:
@@ -56,9 +53,21 @@ class SalaryDetailWindow(QMainWindow):
         
         self.salary = salary
         
+        self.loadData()
         self.setWindowTitle("Salary Details")
         
     def populateFields(self):
         month_year = f"{self.salary[1]} {self.salary[2]}"
         self.ui.monthField.setText(month_year)
         self.ui.monthField.setReadOnly(True)
+        
+        
+    def loadData(self):
+        stmt = f'EXEC GetSalaryDetails {self.salary[0]}'
+        cursor.execute(stmt)
+        details = cursor.fetchall()
+        self.model = SalaryDetailModel(details)
+        self.ui.tableView.setModel(self.model)
+        self.ui.tableView.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        
+        
