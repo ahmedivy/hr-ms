@@ -27,3 +27,4 @@ ALTER TABLE [dbo].[employees]
 ADD [emp_cnic] NVARCHAR(20) NULL
 GO
 
+SELECT TOP(1) * FROM Employees

@@ -1,12 +1,17 @@
-from sqlmodel import select, text
+from collections import namedtuple
 from PySide6.QtWidgets import QWidget, QPushButton, QHeaderView
 from PySide6.QtCore import QAbstractTableModel, Qt, QModelIndex, Slot
 
-from models import Employee
-from core.database import engine
+from core.database import cursor
+from ui.static.css import tableViewStyles
 from views.empDetails import EmpDetailsWindow
+from views.addEmployee import AddEmployeeWindow
 from ui.widgets.employeeWidget_ui import Ui_EmployeeWidget
 
+
+Employee = namedtuple('Employee', [
+    'emp_id', 'emp_firstname', 'emp_lastname', 'emp_hourly_rate', 'emp_email'
+])
 
 class EmployeeTableModel(QAbstractTableModel):
     
@@ -48,12 +53,21 @@ class EmployeeWidget(QWidget):
         self.ui = Ui_EmployeeWidget()
         self.ui.setupUi(self)
         
+        self.populate_fields()
         self.loadEmployees()
         self.addButtons()
+        self.ui.addButton.clicked.connect(self.addEmployee)
+        self.ui.tableView.setStyleSheet(tableViewStyles)
         
         self.ui.searchButton.clicked.connect(self.search)
         self.ui.searchField.returnPressed.connect(self.search)
+        self.ui.orgField.currentIndexChanged.connect(self.loadEmployees)
         
+    @Slot()
+    def addEmployee(self):
+        self.addWindow = AddEmployeeWindow(self)
+        self.addWindow.show()    
+    
     def addButtons(self):
         for ix in range(self.model.rowCount()):
             button = QPushButton("Details", self)
@@ -61,32 +75,40 @@ class EmployeeWidget(QWidget):
             self.ui.tableView.setIndexWidget(self.ui.tableView.model().index(ix, 5), button)
             
             
-    def loadEmployees(self):
-        with engine.begin() as conn:
-            stmt = select(Employee)
-            result = conn.execute(stmt)
-            # stmt = text("EXEC getEmployees @org_id = :org_id")
-            # result = conn.execute(stmt, org_id=1)
-            employees = result.fetchall()
+    def loadEmployees(self):        
+        stmt = f"SELECT emp_id, emp_firstname, emp_lastname, emp_hourly_rate, emp_email FROM employees" \
+                f" WHERE org_id = {self.ui.orgField.currentData()}"
+                
+        cursor.execute(stmt)
+        employees = cursor.fetchall()
+        employees = [Employee(*emp) for emp in employees]
+        
+        
         self.model = EmployeeTableModel(employees)
         self.ui.tableView.setModel(self.model)
-        self.ui.tableView.resizeColumnsToContents()
-        self.ui.tableView.resizeRowsToContents()
         self.ui.tableView.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.addButtons()
+        
+    def populate_fields(self):
+        stmt = "SELECT org_id, org_name FROM organizations"
+        cursor.execute(stmt)
+        
+        for _id, name in cursor.fetchall():
+            self.ui.orgField.addItem(name, _id)
+            
+        self.ui.orgField.setCurrentIndex(0)
             
     @Slot()
     def handleClick(self):
         button = self.sender()
         index = self.ui.tableView.indexAt(button.pos())
         emp = self.model.filtered_employees[index.row()]
-        self.empDetails = EmpDetailsWindow(emp)
+        self.empDetails = EmpDetailsWindow(emp.emp_id)
         self.empDetails.show()
         
         # Refresh the table view
         self.empDetails.ui.deleteButton.clicked.connect(self.loadEmployees)
-        
-            
+                   
     @Slot()
     def search(self):
         if not self.ui.searchField.text():

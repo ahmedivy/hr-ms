@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QDateEdit, QHBoxLayout,
-    QHeaderView, QLabel, QPushButton, QSizePolicy,
-    QSpacerItem, QTableView, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QHBoxLayout, QHeaderView,
+    QLabel, QPushButton, QSizePolicy, QSpacerItem,
+    QTableView, QVBoxLayout, QWidget)
 
 class Ui_AttendanceWidget(object):
     def setupUi(self, AttendanceWidget):
@@ -32,6 +32,9 @@ class Ui_AttendanceWidget(object):
         self.titleLayout.setObjectName(u"titleLayout")
         self.label = QLabel(AttendanceWidget)
         self.label.setObjectName(u"label")
+        self.label.setStyleSheet(u"color: white;\n"
+"font-size: 35px\n"
+"")
 
         self.titleLayout.addWidget(self.label)
 
@@ -41,13 +44,35 @@ class Ui_AttendanceWidget(object):
 
         self.addButton = QPushButton(AttendanceWidget)
         self.addButton.setObjectName(u"addButton")
+        self.addButton.setStyleSheet(u"QPushButton{\n"
+"background-color: #274c77;\n"
+"color:#FFFAFB;\n"
+"font:bold;\n"
+"padding: 5px;\n"
+"border-radius:7px;\n"
+"width: 100px;\n"
+"margin-right:15px;\n"
+"height: 25px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"  background-color: #4cc9f0;\n"
+"  color:black;\n"
+"font:bold;\n"
+"padding: 5px;\n"
+"border-radius:7px;\n"
+"}\n"
+"\n"
+"QPushButton:clicked{\n"
+" background-color: rgb(255, 233, 67);\n"
+"  color:black;\n"
+"font:bold;\n"
+"padding: 3px;\n"
+"border-radius:10px;\n"
+"\n"
+"}")
 
         self.titleLayout.addWidget(self.addButton)
-
-        self.pushButton = QPushButton(AttendanceWidget)
-        self.pushButton.setObjectName(u"pushButton")
-
-        self.titleLayout.addWidget(self.pushButton)
 
 
         self.mainLayout.addLayout(self.titleLayout)
@@ -60,13 +85,19 @@ class Ui_AttendanceWidget(object):
 
         self.filterBar.addItem(self.horizontalSpacer_2)
 
-        self.dateField = QDateEdit(AttendanceWidget)
-        self.dateField.setObjectName(u"dateField")
+        self.label_2 = QLabel(AttendanceWidget)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setStyleSheet(u"color: white;\n"
+"font-size: 20px")
 
-        self.filterBar.addWidget(self.dateField)
+        self.filterBar.addWidget(self.label_2)
 
         self.orgField = QComboBox(AttendanceWidget)
         self.orgField.setObjectName(u"orgField")
+        self.orgField.setStyleSheet(u"background-color:#FFFAFB;\n"
+"width:250px;\n"
+"height: 25px;\n"
+"margin: 3px 0;")
 
         self.filterBar.addWidget(self.orgField)
 
@@ -83,8 +114,8 @@ class Ui_AttendanceWidget(object):
 
         self.mainLayout.addLayout(self.verticalLayout)
 
-        self.mainLayout.setStretch(0, 2)
-        self.mainLayout.setStretch(1, 8)
+        self.mainLayout.setStretch(0, 1)
+        self.mainLayout.setStretch(1, 12)
 
         self.horizontalLayout.addLayout(self.mainLayout)
 
@@ -98,6 +129,6 @@ class Ui_AttendanceWidget(object):
         AttendanceWidget.setWindowTitle(QCoreApplication.translate("AttendanceWidget", u"Form", None))
         self.label.setText(QCoreApplication.translate("AttendanceWidget", u"Attendance", None))
         self.addButton.setText(QCoreApplication.translate("AttendanceWidget", u"Add", None))
-        self.pushButton.setText(QCoreApplication.translate("AttendanceWidget", u"PushButton", None))
+        self.label_2.setText(QCoreApplication.translate("AttendanceWidget", u"Select Organization: ", None))
     # retranslateUi
 

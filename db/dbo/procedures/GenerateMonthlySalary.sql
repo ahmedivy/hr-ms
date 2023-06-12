@@ -4,7 +4,6 @@ CREATE PROCEDURE GenerateMonthlySalary
   @year NVARCHAR(4)
 AS
 BEGIN
-  -- Step 1: Insert salary row
   DECLARE @sal_id INT;
 
   INSERT INTO [dbo].[salary]
@@ -14,7 +13,6 @@ BEGIN
 
   SET @sal_id = SCOPE_IDENTITY();
 
-  -- Step 2: Insert salary details for each employee
   INSERT INTO [dbo].[salaryDetails]
     ([sal_id], [emp_id], [sal_gross_amount], [sal_deductions], [sal_net_amount])
   SELECT

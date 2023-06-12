@@ -15,11 +15,16 @@
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
-    <layout class="QVBoxLayout" name="mainLayout" stretch="2,8">
+    <layout class="QVBoxLayout" name="mainLayout" stretch="1,12">
      <item>
       <layout class="QHBoxLayout" name="titleLayout">
        <item>
         <widget class="QLabel" name="label">
+         <property name="styleSheet">
+          <string notr="true">color: white;
+font-size: 35px
+</string>
+         </property>
          <property name="text">
           <string>Attendance</string>
          </property>
@@ -40,15 +45,37 @@
        </item>
        <item>
         <widget class="QPushButton" name="addButton">
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+background-color: #274c77;
+color:#FFFAFB;
+font:bold;
+padding: 5px;
+border-radius:7px;
+width: 100px;
+margin-right:15px;
+height: 25px;
+}
+
+QPushButton:hover {
+  background-color: #4cc9f0;
+  color:black;
+font:bold;
+padding: 5px;
+border-radius:7px;
+}
+
+QPushButton:clicked{
+ background-color: rgb(255, 233, 67);
+  color:black;
+font:bold;
+padding: 3px;
+border-radius:10px;
+
+}</string>
+         </property>
          <property name="text">
           <string>Add</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton">
-         <property name="text">
-          <string>PushButton</string>
          </property>
         </widget>
        </item>
@@ -72,10 +99,25 @@
           </spacer>
          </item>
          <item>
-          <widget class="QDateEdit" name="dateField"/>
+          <widget class="QLabel" name="label_2">
+           <property name="styleSheet">
+            <string notr="true">color: white;
+font-size: 20px</string>
+           </property>
+           <property name="text">
+            <string>Select Organization: </string>
+           </property>
+          </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="orgField"/>
+          <widget class="QComboBox" name="orgField">
+           <property name="styleSheet">
+            <string notr="true">background-color:#FFFAFB;
+width:250px;
+height: 25px;
+margin: 3px 0;</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>

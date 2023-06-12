@@ -1,0 +1,12 @@
+<RCC>
+  <qresource prefix="images">
+    <file>resources/images/icons8-employee-80.png</file>
+    <file>resources/images/calculator-desmos-svgrepo-com.svg</file>
+    <file>resources/images/company-svgrepo-com.svg</file>
+    <file>resources/images/dashboard-svgrepo-com.svg</file>
+    <file>resources/images/dollar-coin-svgrepo-com.svg</file>
+    <file>resources/images/employee-contact-svgrepo-com.svg</file>
+    <file>resources/images/employees-icon.svg</file>
+    <file>resources/images/fingerprint-svgrepo-com.svg</file>
+  </qresource>
+</RCC>

@@ -7,12 +7,10 @@ AS
 BEGIN
   DECLARE @TotalEmployees INT;
 
-  -- Count total employees for the organization
   SELECT @TotalEmployees = COUNT(*)
   FROM dbo.employees
   WHERE org_id = @OrganizationID;
 
-  -- Retrieve attendance details
   SELECT
     a.atd_id AS AttendanceID,
     a.atd_date AS AttendanceDate,
@@ -26,7 +24,9 @@ BEGIN
     a.org_id = @OrganizationID
   GROUP BY
     a.atd_id,
-    a.atd_date;
+    a.atd_date
+  ORDER BY
+    a.atd_date DESC;
 END
 
 

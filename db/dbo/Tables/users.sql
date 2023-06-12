@@ -90,3 +90,9 @@ GO
 EXEC GenerateSalary 106, 'February', '2021';
 
 SELECT * FROM salaryDetails WHERE sal_id = 108
+
+SELECT * FROM employees WHERE emp_firstname = 'Ahmad'
+
+UPDATE Loans SET loan_status = 'Paid' WHERE loan_id = 107
+
+SELECT * FROM loans WHERE loan_id = 107

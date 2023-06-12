@@ -2,6 +2,7 @@ from PySide6.QtWidgets import QMainWindow, QHeaderView
 from PySide6.QtCore import QAbstractTableModel, Qt, QModelIndex, Slot
 
 from core.database import cursor
+from ui.static.css import tableViewStyles
 from ui.screens.salarydetails_ui import Ui_SalaryDetailWindow
 
 
@@ -32,11 +33,11 @@ class SalaryDetailModel(QAbstractTableModel):
             elif index.column() == 1:
                 return detail[1]
             elif index.column() == 2:
-                return detail[2]
+                return str(detail[2])
             elif index.column() == 3:
-                return detail[4]
+                return str(detail[4])
             elif index.column() == 4:
-                return detail[3]
+                return str(detail[3])
             
     def headerData(self, section: int, orientation: Qt.Orientation, role: int = None):
         if role == Qt.DisplayRole:
@@ -52,6 +53,7 @@ class SalaryDetailWindow(QMainWindow):
         self.ui.setupUi(self)
         
         self.salary = salary
+        self.ui.tableView.setStyleSheet(tableViewStyles)
         
         self.loadData()
         self.setWindowTitle("Salary Details")

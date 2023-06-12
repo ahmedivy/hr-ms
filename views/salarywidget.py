@@ -3,6 +3,7 @@ from PySide6.QtCore import QAbstractTableModel, Qt, QModelIndex, Slot
 
 from core.database import cursor
 from views.addsalary import AddSalaryWindow
+from ui.static.css import tableViewStyles
 from views.salarydetails import SalaryDetailWindow
 from ui.widgets.salarywidget_ui import Ui_SalaryWidget
 
@@ -57,6 +58,8 @@ class SalaryWidget(QWidget):
         
         self.populate_fields()
         self.loadData()
+        self.ui.tableView.setStyleSheet(tableViewStyles)
+
         
         self.ui.orgField.currentIndexChanged.connect(self.loadData)
         self.ui.generateSalaryButton.clicked.connect(self.handleNew)

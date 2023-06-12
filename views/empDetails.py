@@ -1,22 +1,29 @@
 from datetime import date
 from PySide6.QtCore import Slot
+from collections import namedtuple
 from sqlmodel import Session, select
 from PySide6.QtWidgets import QMainWindow
 
-from models import Employee
-from core.database import engine
+from core.database import cursor
 from views.okDialog import OkDialog
 from ui.screens.empdetailswindow_ui import Ui_EmployeeDetailsWindow
 
 
+Employee = namedtuple('Employee',[
+    'emp_id', 'org_id', 'emp_firstname', 'emp_lastname', 'emp_email',
+    'emp_phone', 'emp_address', 'emp_city', 'emp_state', 'emp_zip',
+    'emp_country', 'emp_hire_date', 'emp_termination_date', 'emp_dob',
+    'emp_position', 'emp_hourly_rate', 'emp_cnic'
+])
+
 class EmpDetailsWindow(QMainWindow):
-    def __init__(self, emp: Employee, parent=None):
+    def __init__(self, emp_id: int, parent=None):
         super(EmpDetailsWindow, self).__init__()
         self.ui = Ui_EmployeeDetailsWindow()
         self.ui.setupUi(self)
-        self.employee = emp
         
-        self.initializeFields()
+        self.loadEmployee(emp_id)
+        
         self.ui.deleteButton.clicked.connect(self.deleteEmployee)
         
     def initializeFields(self):
@@ -41,7 +48,18 @@ class EmpDetailsWindow(QMainWindow):
             else "Not Terminated"
         )
         
+        name = f'{self.employee.emp_firstname} {self.employee.emp_lastname}'
+        self.ui.nameLabel.setText(name)
+        
         self.setNonEditable()
+        
+    def loadEmployee(self, emp_id: int):
+        stmt = "SELECT * FROM employees WHERE emp_id = ?"
+        cursor.execute(stmt, emp_id)
+        emp = cursor.fetchone()
+        
+        self.employee = Employee(*emp)
+        self.initializeFields()
         
     def setNonEditable(self):
         self.ui.fnameField.setReadOnly(True)
@@ -79,13 +97,12 @@ class EmpDetailsWindow(QMainWindow):
     def terminateEmployee(self):
         # self.employee.emp_termination_date = date.today()
         self.ui.terminationDateField.setText(str(self.employee.emp_termination_date))
+
+        stmt = f"UPDATE employees SET emp_termination_date = '{date.today()}' WHERE emp_id = {self.employee.emp_id}"
+        cursor.execute(stmt)
+        cursor.commit()
         
-        with Session(engine) as session:
-            stmt = select(Employee).where(Employee.emp_id == self.employee.emp_id)
-            emp = session.exec(stmt).one()
-            emp.emp_termination_date = date.today()
-            session.add(emp)
-            session.commit()
-            
         self.close()
         
+        self.parent.loadEmployees()
+            

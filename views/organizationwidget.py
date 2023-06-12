@@ -1,11 +1,17 @@
-from sqlmodel import text
+from collections import namedtuple
 from PySide6.QtWidgets import QWidget, QPushButton, QHeaderView
 from PySide6.QtCore import QAbstractTableModel, Qt, QModelIndex, Slot
 
-from core.database import engine
+from core.database import cursor
 from views.addorg import OrgDetails
+from ui.static.css import tableViewStyles
 from ui.widgets.organizationWidget_ui import Ui_OrganizationWidget
 
+
+Organization = namedtuple('Organization',[
+    'org_id', 'org_name', 'org_phone', 'org_email', 'org_location', 'total_employees'
+])
+                          
 
 class OrganizationModel(QAbstractTableModel):
     def __init__(self, orgs: list):
@@ -55,20 +61,20 @@ class OrganizationWidget(QWidget):
         # Populate the table
         self.loadData()
         
+        self.ui.tableView.setStyleSheet(tableViewStyles)
+        
         self.ui.newButton.clicked.connect(self.handleNew)
         
     def loadData(self):
         
-        # Get the data from the database
-        with engine.begin() as conn:
-            stmt = text("EXEC GetOrganizations")
-            orgs = conn.execute(stmt).all()
-            print(orgs)
-        
+        # Get the data from the database    
+        stmt = "EXEC GetOrganizations"
+        cursor.execute(stmt)
+        orgs = cursor.fetchall()
+        orgs = [Organization(*org) for org in orgs]
         self.model = OrganizationModel(orgs)
         self.ui.tableView.setModel(self.model)
         self.ui.tableView.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
-
         self.addButtons()
         
         
@@ -77,22 +83,20 @@ class OrganizationWidget(QWidget):
             button = QPushButton("Details", self)
             button.clicked.connect(self.handleClick)
             self.ui.tableView.setIndexWidget(self.model.index(ix, 5), button)
-        
-            
+          
     @Slot()
     def handleClick(self):
         button = self.sender()
         index = self.ui.tableView.indexAt(button.pos())
         org_id = self.model.orgs[index.row()].org_id
-        self.orgDetails = OrgDetails(False, org_id)
+        self.orgDetails = OrgDetails(parent = self, add_org = False, org_id = org_id)
         self.orgDetails.show()
         
-    
     @Slot()
     def handleNew(self):
         self.addOrgWindow = OrgDetails()
-        self.addOrgWindow.show()
+        self.addOrgWindow.show(parent = self)
         
-        
-    
-        
+    def tableRefresh(self):
+        self.loadData()
+          

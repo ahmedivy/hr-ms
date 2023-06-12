@@ -2,6 +2,7 @@ DROP PROCEDURE IF EXISTS [dbo].[GetLoans]
 GO
 
 CREATE PROCEDURE [dbo].[GetLoans]
+  @org_id INT
 AS
 BEGIN
   SELECT
@@ -18,5 +19,6 @@ BEGIN
   FROM [dbo].[loans] l
     INNER JOIN [dbo].[employees] e ON l.emp_id = e.emp_id
     INNER JOIN [dbo].[organizations] o ON e.org_id = o.org_id
+  WHERE o.org_id = @org_id
 END
 GO

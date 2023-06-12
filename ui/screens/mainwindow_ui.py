@@ -18,12 +18,13 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLayout,
     QLineEdit, QMainWindow, QPushButton, QSizePolicy,
     QSpacerItem, QStackedWidget, QVBoxLayout, QWidget)
+import images_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(693, 616)
+        MainWindow.resize(1056, 770)
         MainWindow.setStyleSheet(u"background-color:#04395e;\n"
 "")
         self.centralwidget = QWidget(MainWindow)
@@ -48,6 +49,7 @@ class Ui_MainWindow(object):
 "width: 100px;\n"
 "margin-right:15px;\n"
 "height: 25px;\n"
+"text-align: left\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
@@ -65,7 +67,12 @@ class Ui_MainWindow(object):
 "padding: 3px;\n"
 "border-radius:10px;\n"
 "\n"
-"}")
+"}\n"
+"")
+        icon = QIcon()
+        icon.addFile(u":/images/resources/images/dashboard-svgrepo-com.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.dashboardButton.setIcon(icon)
+        self.dashboardButton.setIconSize(QSize(30, 30))
 
         self.menuLayout.addWidget(self.dashboardButton)
 
@@ -78,6 +85,7 @@ class Ui_MainWindow(object):
 "padding: 5px;\n"
 "border-radius:7px;\n"
 "width: 100px;\n"
+"text-align:left;\n"
 "margin-right:15px;\n"
 "height: 25px;\n"
 "}\n"
@@ -98,6 +106,10 @@ class Ui_MainWindow(object):
 "border-radius:10px;\n"
 "\n"
 "}")
+        icon1 = QIcon()
+        icon1.addFile(u":/images/resources/images/company-svgrepo-com.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.organizationButton.setIcon(icon1)
+        self.organizationButton.setIconSize(QSize(32, 32))
 
         self.menuLayout.addWidget(self.organizationButton)
 
@@ -112,6 +124,7 @@ class Ui_MainWindow(object):
 "width: 100px;\n"
 "margin-right:15px;\n"
 "height: 25px;\n"
+"text-align:left\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
@@ -130,6 +143,10 @@ class Ui_MainWindow(object):
 "border-radius:10px;\n"
 "\n"
 "}")
+        icon2 = QIcon()
+        icon2.addFile(u":/images/resources/images/employee-contact-svgrepo-com.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.employeeButton.setIcon(icon2)
+        self.employeeButton.setIconSize(QSize(40, 40))
 
         self.menuLayout.addWidget(self.employeeButton)
 
@@ -144,6 +161,7 @@ class Ui_MainWindow(object):
 "width: 100px;\n"
 "margin-right:15px;\n"
 "height: 25px;\n"
+"text-align:left\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
@@ -162,6 +180,10 @@ class Ui_MainWindow(object):
 "border-radius:10px;\n"
 "\n"
 "}")
+        icon3 = QIcon()
+        icon3.addFile(u":/images/resources/images/dollar-coin-svgrepo-com.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.salariesButton.setIcon(icon3)
+        self.salariesButton.setIconSize(QSize(29, 29))
 
         self.menuLayout.addWidget(self.salariesButton)
 
@@ -176,6 +198,7 @@ class Ui_MainWindow(object):
 "width: 100px;\n"
 "margin-right:15px;\n"
 "height: 25px;\n"
+"text-align:left\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
@@ -194,6 +217,10 @@ class Ui_MainWindow(object):
 "border-radius:10px;\n"
 "\n"
 "}")
+        icon4 = QIcon()
+        icon4.addFile(u":/images/resources/images/fingerprint-svgrepo-com.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.attendanceButton.setIcon(icon4)
+        self.attendanceButton.setIconSize(QSize(32, 32))
 
         self.menuLayout.addWidget(self.attendanceButton)
 
@@ -208,6 +235,7 @@ class Ui_MainWindow(object):
 "width: 100px;\n"
 "margin-right:15px;\n"
 "height: 25px;\n"
+"text-align:left\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
@@ -226,6 +254,10 @@ class Ui_MainWindow(object):
 "border-radius:10px;\n"
 "\n"
 "}")
+        icon5 = QIcon()
+        icon5.addFile(u":/images/resources/images/calculator-desmos-svgrepo-com.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.loanButton.setIcon(icon5)
+        self.loanButton.setIconSize(QSize(32, 25))
 
         self.menuLayout.addWidget(self.loanButton)
 
@@ -354,6 +386,9 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.dashboardButton.setText(QCoreApplication.translate("MainWindow", u"Dashboard", None))
         self.organizationButton.setText(QCoreApplication.translate("MainWindow", u"Organizations", None))
+#if QT_CONFIG(shortcut)
+        self.organizationButton.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+R", None))
+#endif // QT_CONFIG(shortcut)
         self.employeeButton.setText(QCoreApplication.translate("MainWindow", u"Employees", None))
         self.salariesButton.setText(QCoreApplication.translate("MainWindow", u"Salaries", None))
         self.attendanceButton.setText(QCoreApplication.translate("MainWindow", u"Attendance", None))

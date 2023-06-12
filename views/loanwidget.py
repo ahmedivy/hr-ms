@@ -1,9 +1,10 @@
-from sqlmodel import text
+from datetime import date
 from PySide6.QtWidgets import QWidget, QPushButton, QHeaderView
 from PySide6.QtCore import QAbstractTableModel, Qt, QModelIndex, Slot
 
-from core.database import engine, cursor
+from core.database import cursor
 from views.addloan import AddLoanWindow
+from ui.static.css import tableViewStyles
 from ui.widgets.loanwidget_ui import Ui_LoanWidget
 
 
@@ -12,7 +13,6 @@ class LoanTableModel(QAbstractTableModel):
     def __init__(self, loans: list):
         super(LoanTableModel, self).__init__()
         self.loans = loans
-        self.filtered_loans = loans
         self.header = [
             "Employee ID",
             "Employee Name",
@@ -25,14 +25,14 @@ class LoanTableModel(QAbstractTableModel):
         ]
         
     def rowCount(self, parent: QModelIndex = None) -> int:
-        return len(self.filtered_loans)
+        return len(self.loans)
     
     def columnCount(self, parent: QModelIndex = None) -> int:
         return len(self.header)
     
     def data(self, index: QModelIndex, role: int = None):
         if role == Qt.DisplayRole:
-            loan = self.filtered_loans[index.row()]
+            loan = self.loans[index.row()]
             if index.column() == 0:
                 return loan[0]
             elif index.column() == 1:
@@ -40,13 +40,13 @@ class LoanTableModel(QAbstractTableModel):
             elif index.column() == 2:
                 return loan[3]
             elif index.column() == 3:
-                return loan[5]
+                return str(loan[5])
             elif index.column() == 4:
-                return loan[6]
+                return str(loan[6])
             elif index.column() == 5:
                 return loan[7]
             elif index.column() == 6:
-                return loan[8]         
+                return str(loan[8])         
             
     def headerData(self, section: int, orientation: Qt.Orientation, role: int = None):
         if role == Qt.DisplayRole:
@@ -61,20 +61,17 @@ class LoanWidget(QWidget):
         self.ui.setupUi(self)
         
         # Populate the table
+        self.populateComboBox()
         self.loadData()
+        self.ui.tableView.setStyleSheet(tableViewStyles)
         
         self.addButtons()
-        self.populateComboBox()
         self.ui.addButton.clicked.connect(self.handleNew)
-        # self.ui.pendingCheckbox.
         
     def loadData(self):
-        with engine.connect() as conn:
-            stmt = text("EXEC GetLoans")
-            result = conn.execute(stmt)
-            loans = result.fetchall()
-            print(loans)
-            
+        stmt = f'EXEC GetLoans {self.ui.orgField.currentData()}'
+        cursor.execute(stmt)
+        loans = cursor.fetchall()
         self.model = LoanTableModel(loans)
         self.ui.tableView.setModel(self.model)
         self.ui.tableView.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
@@ -82,38 +79,19 @@ class LoanWidget(QWidget):
         
     
     def populateComboBox(self):
-        with engine.connect() as conn:
-            stmt = text(
-                "SELECT o.org_id, o.org_name FROM Organizations o"
-            )
-            result = conn.execute(stmt)
-            organizations = result.fetchall()
-            
-        self.ui.orgField.clear()
-        self.ui.orgField.addItem("All Organization", -1)
+        stmt = 'SELECT o.org_id, o.org_name FROM Organizations o'
+        cursor.execute(stmt)
+        orgs = cursor.fetchall()
         
-        for org in organizations:
-            self.ui.orgField.addItem(org.org_name, org.org_id)
+        for _id, name in orgs:
+            self.ui.orgField.addItem(name, _id)
             
-        # Add Default Item
         self.ui.orgField.setCurrentIndex(0)
-        
-        # Connect the signal
         self.ui.orgField.currentIndexChanged.connect(self.handleOrgChange)
         
     @Slot()
     def handleOrgChange(self):
-        # Update the filtered loans
-        org_id = self.ui.orgField.currentData()
-        
-        if org_id == -1:
-            self.model.filtered_loans = self.model.loans
-        else:
-            self.model.filtered_loans = [
-                loan for loan in self.model.loans if loan.org_id == org_id
-            ]
-            
-        self.model.layoutChanged.emit()
+        self.loadData()
         
     @Slot()
     def handleNew(self):
@@ -131,14 +109,12 @@ class LoanWidget(QWidget):
     def handleClick(self):
         button = self.sender()
         index = self.ui.tableView.indexAt(button.pos())
-        loan = self.model.filtered_loans[index.row()]
+        loan = self.model.loans[index.row()]
         
-        with engine.connect() as conn:
-            stmt = text(
-            f"EXEC UpdateLoanStatus {loan[4]}"
-            )
-            conn.execute(stmt)
-            
+        stmt = f"UPDATE Loans SET loan_status = 'Paid', loan_payment_date = {date.today()} WHERE loan_id = {loan[4]}"
+        cursor.execute(stmt)
+        cursor.commit()
+        
         self.loadData()
         
     

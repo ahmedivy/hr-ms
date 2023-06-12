@@ -1,21 +1,26 @@
-from typing import Optional
+from typing import List
+from collections import namedtuple
 from PySide6.QtWidgets import QWidget, QPushButton, QHeaderView
 from PySide6.QtCore import QAbstractTableModel, Qt, QModelIndex, Slot
 
-from models import Employee
 from core.database import cursor
+from ui.static.css import tableViewStyles
 from ui.widgets.attendance_ui import Ui_AttendanceWidget
 
 from views.addattendance import AddAttendanceWindow
 from views.attendancedetails import AttendanceDetailsWindow
 
+   
+Attendance = namedtuple("Attendance", ["atd_id", "atd_date", "present_employees", "absent_employees"])
+
 
 class AtendanceTableModel(QAbstractTableModel):
     
-    def __init__(self, attendance: list):
+    def __init__(self, attendance: List[Attendance]):
         super(AtendanceTableModel, self).__init__()
         
         self.attendance = attendance
+        self.filterAttendance = attendance
         self.header = [
             "Attendance ID",
             "Attendace Date",
@@ -32,15 +37,15 @@ class AtendanceTableModel(QAbstractTableModel):
     
     def data(self, index: QModelIndex, role: int = None):
         if role == Qt.DisplayRole:
-            attendance = self.attendance[index.row()]
+            attendance = self.filterAttendance[index.row()]
             if index.column() == 0:
-                return attendance[0]
+                return attendance.atd_id
             elif index.column() == 1:
-                return str(attendance[1])
+                return str(attendance.atd_date)
             elif index.column() == 2:
-                return attendance[2]
+                return attendance.present_employees
             elif index.column() == 3:
-                return attendance[3]
+                return attendance.absent_employees
             
     def headerData(self, section: int, orientation: Qt.Orientation, role: int = None):
         if role == Qt.DisplayRole:
@@ -56,9 +61,12 @@ class AttendanceWidget(QWidget):
         
         self.populateOrganizationComboBox()
         self.loadAttendance()
+        self.ui.tableView.setStyleSheet(tableViewStyles)
         
         self.ui.addButton.clicked.connect(self.handleAddAttendance)
         self.ui.orgField.currentIndexChanged.connect(self.loadAttendance)
+        
+
         
     def addButtons(self):
         for ix in range(self.model.rowCount()):
@@ -85,10 +93,11 @@ class AttendanceWidget(QWidget):
         
     def loadAttendance(self):
         org_id = self.ui.orgField.currentData()
-        print(org_id)
         stmt = f"EXEC GetAttendanceDetails {org_id}"
         cursor.execute(stmt)
-        self.model = AtendanceTableModel(cursor.fetchall())
+        attds = cursor.fetchall()
+        attds = [Attendance(*attd) for attd in attds]
+        self.model = AtendanceTableModel(attds)
         self.ui.tableView.setModel(self.model)
         self.ui.tableView.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.addButtons()

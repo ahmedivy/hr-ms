@@ -1,14 +1,21 @@
 from sqlmodel import text
 from PySide6.QtCore import Slot
+from collections import namedtuple
 from PySide6.QtWidgets import QMainWindow
 
-from core.database import engine
+from core.database import cursor
 from ui.screens.addorg_ui import Ui_AddOrgWindow
+
+Organization = namedtuple('Organization', 
+    ['org_id', 'org_name', 'org_description', 'org_type', 'org_phone',
+     'org_email', 'org_website', 'org_logo_url', 'org_registration_date',
+     'org_address', 'org_city', 'org_state', 'org_zip', 'org_country'])
 
 
 class OrgDetails(QMainWindow):
-    def __init__(self, add_org: bool = True, org_id: int = None):
+    def __init__(self, parent = None, add_org: bool = True, org_id: int = None):
         super(OrgDetails, self).__init__()
+        self.parent = parent
         self.ui = Ui_AddOrgWindow()
         self.ui.setupUi(self)
         
@@ -30,14 +37,15 @@ class OrgDetails(QMainWindow):
         )
         
         self.ui.okButton.clicked.connect(self.handleOk)
+        self.ui.cancelButton.clicked.connect(self.close)
             
     
     def getOrg(self, org_id: int):
-        with engine.connect() as conn:
-            stmt = text("EXECUTE [dbo].[GetOrganizationDetails] @id = :org_id")
-            stmt = stmt.bindparams(org_id=org_id)
-            org = conn.execute(stmt).first()
-            return org
+        stmt = f'EXECUTE [dbo].[GetOrganizationDetails] {org_id}'
+        cursor.execute(stmt)
+        org = cursor.fetchone()
+        org = Organization(*org)
+        return org
             
     def populateData(self):
         self.ui.nameField.setText(self.org.org_name)
@@ -85,57 +93,49 @@ class OrgDetails(QMainWindow):
             self.updateOrg()
             
     def createOrg(self):
-        with engine.connect() as conn:
-            stmt = text("EXECUTE [dbo].[CreateOrganization] "
-                "@name = :name, "
-                "@email = :email,"
-                "@phone = :phone,"
-                "@city = :city,"
-                "@address = :address,"
-                "@state = :state,"
-                "@country = :country,"
-                "@zip = :zip,"
-                "@type = :type"
-            )
-            stmt = stmt.bindparams(
-                name=self.ui.nameField.text(),
-                email=self.ui.emailField.text(),
-                phone=self.ui.phoneField.text(),
-                city=self.ui.cityField.text(),
-                address=self.ui.streetField.text(),
-                state=self.ui.stateField.text(),
-                country=self.ui.countryField.text(),
-                zip=self.ui.zipField.text(),
-                type=self.ui.typeField.currentText()
-            )
-            conn.execute(stmt)
+            proc_call = "{CALL CreateOrganization(?, ?, ?, ?, ?, ?, ?, ?, ?)}"
+    
+            # Extract the values from the UI fields
+            name = self.ui.nameField.text()
+            email = self.ui.emailField.text()
+            phone = self.ui.phoneField.text()
+            city = self.ui.cityField.text()
+            address = self.ui.streetField.text()
+            state = self.ui.stateField.text()
+            country = self.ui.countryField.text()
+            _zip = self.ui.zipField.text()
+            _type = self.ui.typeField.currentText()
+            
+            # Execute the stored procedure
+            cursor.execute(proc_call, (name, email, phone, city, address, state, country, _zip, _type))
+            cursor.commit()
+            self.close()
+            self.parent.tableRefresh()
             
     def updateOrg(self):
-        with engine.connect() as conn:
-            stmt = text("EXECUTE [dbo].[UpdateOrganization] "
-                "@id = :id, "
-                "@name = :name, "
-                "@email = :email,"
-                "@website = :website,"
-                "@phone = :phone,"
-                "@city = :city,"
-                "@address = :address,"
-                "@state = :state,"
-                "@country = :country,"
-                "@zip = :zip,"
-                "@type = :type"
-            )
-            stmt = stmt.bindparams(
-                id=self.org.org_id,
-                name=self.ui.nameField.text(),
-                email=self.ui.emailField.text(),
-                website=self.ui.websiteField.text(),
-                phone=self.ui.phoneField.text(),
-                city=self.ui.cityField.text(),
-                address=self.ui.streetField.text(),
-                state=self.ui.stateField.text(),
-                country=self.ui.countryField.text(),
-                zip=self.ui.zipField.text(),
-                type=self.ui.typeField.currentText()
-            )
-            conn.execute(stmt)
+            proc_call = "{CALL UpdateOrganization(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}"
+            
+            print('Updating organization')
+            
+            # Extract the values from the UI fields
+            _id = self.org.org_id
+            name = self.ui.nameField.text()
+            email = self.ui.emailField.text()
+            website = self.ui.websiteField.text()
+            phone = self.ui.phoneField.text()
+            city = self.ui.cityField.text()
+            address = self.ui.streetField.text()
+            state = self.ui.stateField.text()
+            country = self.ui.countryField.text()
+            _zip = self.ui.zipField.text()
+            _type = self.ui.typeField.currentText()
+            
+            # Execute the stored procedure
+            cursor.execute(proc_call, (_id, name, email, website, phone, city, address, state, country, _zip, _type))
+            cursor.commit()
+            
+            self.close()
+            self.parent.tableRefresh()
+
+        
+                

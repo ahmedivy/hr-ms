@@ -4,6 +4,7 @@ from PySide6.QtWidgets import QMainWindow
 from models import *
 
 from views.loanwidget import LoanWidget
+from views.dashboard import DashboardWidget
 from views.salarywidget import SalaryWidget
 from views.employeewidget import EmployeeWidget
 from views.attendancewidget import AttendanceWidget
@@ -23,8 +24,18 @@ class MainWindow(QMainWindow):
         self.ui.organizationButton.clicked.connect(self.handleOrganizationMenu)
         self.ui.loanButton.clicked.connect(self.handleLoanMenu)
         self.ui.salariesButton.clicked.connect(self.handleSalariesMenu)
+        self.ui.dashboardButton.clicked.connect(self.handleDashboardMenu)
+        
+        self.handleDashboardMenu()
         
         self.setWindowTitle("HR Management System")
+        
+    @Slot()
+    def handleDashboardMenu(self):
+        if not hasattr(self, 'dashboardWidget'):
+            self.dashboardWidget = DashboardWidget()
+            self.ui.stackedWidget.addWidget(self.dashboardWidget)
+        self.ui.stackedWidget.setCurrentWidget(self.dashboardWidget)
     
     @Slot()
     def handleSalariesMenu(self):

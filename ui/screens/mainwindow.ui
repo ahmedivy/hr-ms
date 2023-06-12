@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>693</width>
-    <height>616</height>
+    <width>1056</width>
+    <height>770</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -44,6 +44,7 @@ border-radius:7px;
 width: 100px;
 margin-right:15px;
 height: 25px;
+text-align: left
 }
 
 QPushButton:hover {
@@ -61,10 +62,21 @@ font:bold;
 padding: 3px;
 border-radius:10px;
 
-}</string>
+}
+</string>
           </property>
           <property name="text">
            <string>Dashboard</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../../images.qrc">
+            <normaloff>:/images/resources/images/dashboard-svgrepo-com.svg</normaloff>:/images/resources/images/dashboard-svgrepo-com.svg</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
           </property>
          </widget>
         </item>
@@ -78,6 +90,7 @@ font:bold;
 padding: 5px;
 border-radius:7px;
 width: 100px;
+text-align:left;
 margin-right:15px;
 height: 25px;
 }
@@ -102,6 +115,19 @@ border-radius:10px;
           <property name="text">
            <string>Organizations</string>
           </property>
+          <property name="icon">
+           <iconset resource="../../images.qrc">
+            <normaloff>:/images/resources/images/company-svgrepo-com.svg</normaloff>:/images/resources/images/company-svgrepo-com.svg</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="shortcut">
+           <string>Ctrl+R</string>
+          </property>
          </widget>
         </item>
         <item>
@@ -116,6 +142,7 @@ border-radius:7px;
 width: 100px;
 margin-right:15px;
 height: 25px;
+text-align:left
 }
 
 QPushButton:hover {
@@ -138,6 +165,16 @@ border-radius:10px;
           <property name="text">
            <string>Employees</string>
           </property>
+          <property name="icon">
+           <iconset resource="../../images.qrc">
+            <normaloff>:/images/resources/images/employee-contact-svgrepo-com.svg</normaloff>:/images/resources/images/employee-contact-svgrepo-com.svg</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>40</width>
+            <height>40</height>
+           </size>
+          </property>
          </widget>
         </item>
         <item>
@@ -152,6 +189,7 @@ border-radius:7px;
 width: 100px;
 margin-right:15px;
 height: 25px;
+text-align:left
 }
 
 QPushButton:hover {
@@ -174,6 +212,16 @@ border-radius:10px;
           <property name="text">
            <string>Salaries</string>
           </property>
+          <property name="icon">
+           <iconset resource="../../images.qrc">
+            <normaloff>:/images/resources/images/dollar-coin-svgrepo-com.svg</normaloff>:/images/resources/images/dollar-coin-svgrepo-com.svg</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>29</width>
+            <height>29</height>
+           </size>
+          </property>
          </widget>
         </item>
         <item>
@@ -188,6 +236,7 @@ border-radius:7px;
 width: 100px;
 margin-right:15px;
 height: 25px;
+text-align:left
 }
 
 QPushButton:hover {
@@ -210,6 +259,16 @@ border-radius:10px;
           <property name="text">
            <string>Attendance</string>
           </property>
+          <property name="icon">
+           <iconset resource="../../images.qrc">
+            <normaloff>:/images/resources/images/fingerprint-svgrepo-com.svg</normaloff>:/images/resources/images/fingerprint-svgrepo-com.svg</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
          </widget>
         </item>
         <item>
@@ -224,6 +283,7 @@ border-radius:7px;
 width: 100px;
 margin-right:15px;
 height: 25px;
+text-align:left
 }
 
 QPushButton:hover {
@@ -245,6 +305,16 @@ border-radius:10px;
           </property>
           <property name="text">
            <string>Loans</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../../images.qrc">
+            <normaloff>:/images/resources/images/calculator-desmos-svgrepo-com.svg</normaloff>:/images/resources/images/calculator-desmos-svgrepo-com.svg</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>32</width>
+            <height>25</height>
+           </size>
           </property>
          </widget>
         </item>
@@ -390,6 +460,8 @@ border-radius:10px;
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../images.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -13,84 +13,125 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:#04395e;</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <layout class="QVBoxLayout" name="mainLayout" stretch="3,7">
+     <layout class="QVBoxLayout" name="mainLayout" stretch="2,7">
       <item>
-       <layout class="QHBoxLayout" name="titleLayout">
+       <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QLabel" name="label">
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(85, 170, 255);
-color:white;
-font:bold;
-padding: 5px;
-border-radius:15px;
-</string>
-          </property>
-          <property name="text">
-           <string>Add New Attendance</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QPushButton" name="confirmButton">
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(85, 170, 255);
-color:white;
-font:bold;
-padding: 6px;
-border-radius:14px;
-</string>
-          </property>
-          <property name="text">
-           <string>Confirm</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="dateField">
-          <property name="mouseTracking">
-           <bool>false</bool>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(85, 170, 255);
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="styleSheet">
+             <string notr="true">color: white;
+font-size: 30px;</string>
+            </property>
+            <property name="text">
+             <string>Add Attendance</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="confirmButton">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(85, 170, 255);
 color:white;
 font:bold;
 padding: 6px;
-border-radius:14px;
+border-radius:8px;
 </string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="uploadButton">
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(85, 170, 255);
+            </property>
+            <property name="text">
+             <string>Confirm</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="uploadButton">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(85, 170, 255);
 color:white;
 font:bold;
 padding: 6px;
-border-radius:14px;
+border-radius:8px;
 </string>
-          </property>
-          <property name="text">
-           <string>Upload Attendance</string>
-          </property>
-         </widget>
+            </property>
+            <property name="text">
+             <string>Upload Attendance</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="styleSheet">
+             <string notr="true">font-size: 16px;
+color: white</string>
+            </property>
+            <property name="text">
+             <string>Select Date</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="dateField">
+            <property name="styleSheet">
+             <string notr="true">font-size: 16px</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="styleSheet">
+             <string notr="true">font-size:16px;
+color: white</string>
+            </property>
+            <property name="text">
+             <string>Select Organization: </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="orgField">
+            <property name="styleSheet">
+             <string notr="true">font-size: 16px</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </item>

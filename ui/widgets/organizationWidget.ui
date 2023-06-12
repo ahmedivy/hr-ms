@@ -33,6 +33,9 @@
              <pointsize>28</pointsize>
             </font>
            </property>
+           <property name="styleSheet">
+            <string notr="true">color:white</string>
+           </property>
            <property name="text">
             <string>Associated Organizations</string>
            </property>
@@ -55,6 +58,35 @@
            </item>
            <item>
             <widget class="QPushButton" name="newButton">
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+background-color: #274c77;
+color:#FFFAFB;
+font:bold;
+padding: 5px;
+border-radius:7px;
+width: 100px;
+margin-right:15px;
+height: 25px;
+}
+
+QPushButton:hover {
+  background-color: #4cc9f0;
+  color:black;
+font:bold;
+padding: 5px;
+border-radius:7px;
+}
+
+QPushButton:clicked{
+ background-color: rgb(255, 233, 67);
+  color:black;
+font:bold;
+padding: 3px;
+border-radius:10px;
+
+}</string>
+             </property>
              <property name="text">
               <string>New</string>
              </property>
@@ -62,6 +94,35 @@
            </item>
            <item>
             <widget class="QPushButton" name="deleteButton">
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+background-color: #274c77;
+color:#FFFAFB;
+font:bold;
+padding: 5px;
+border-radius:7px;
+width: 100px;
+margin-right:15px;
+height: 25px;
+}
+
+QPushButton:hover {
+  background-color: #4cc9f0;
+  color:black;
+font:bold;
+padding: 5px;
+border-radius:7px;
+}
+
+QPushButton:clicked{
+ background-color: rgb(255, 233, 67);
+  color:black;
+font:bold;
+padding: 3px;
+border-radius:10px;
+
+}</string>
+             </property>
              <property name="text">
               <string>Delete</string>
              </property>

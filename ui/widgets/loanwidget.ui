@@ -22,6 +22,10 @@
         <layout class="QHBoxLayout" name="titleBar">
          <item>
           <widget class="QLabel" name="label">
+           <property name="styleSheet">
+            <string notr="true">font-size: 30px;
+color: white;</string>
+           </property>
            <property name="text">
             <string>Loans Information</string>
            </property>
@@ -42,6 +46,35 @@
          </item>
          <item>
           <widget class="QPushButton" name="addButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton{
+background-color: #274c77;
+color:#FFFAFB;
+font:bold;
+padding: 5px;
+border-radius:7px;
+width: 100px;
+margin-right:15px;
+height: 25px;
+}
+
+QPushButton:hover {
+  background-color: #4cc9f0;
+  color:black;
+font:bold;
+padding: 5px;
+border-radius:7px;
+}
+
+QPushButton:clicked{
+ background-color: rgb(255, 233, 67);
+  color:black;
+font:bold;
+padding: 3px;
+border-radius:10px;
+
+}</string>
+           </property>
            <property name="text">
             <string>Add</string>
            </property>
@@ -66,13 +99,26 @@
          </item>
          <item>
           <widget class="QCheckBox" name="pendingCheckbox">
+           <property name="styleSheet">
+            <string notr="true">color:white
+</string>
+           </property>
            <property name="text">
             <string>Pending</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="orgField"/>
+          <widget class="QComboBox" name="orgField">
+           <property name="styleSheet">
+            <string notr="true">background-color:#FFFAFB;
+width:250px;
+height: 25px;
+margin: 3px 0;
+border-radius:10px;
+</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>

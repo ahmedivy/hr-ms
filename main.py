@@ -1,15 +1,11 @@
 import sys
 from PySide6.QtWidgets import QApplication
-from qdarktheme import setup_theme as apply_css
 
-from views.login import LoginWindow
 from views.mainwindow import MainWindow
 
+
 if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    
-    apply_css("auto")
-    
+    app = QApplication(sys.argv)    
     window = MainWindow()
     window.show()
     app.exec() 

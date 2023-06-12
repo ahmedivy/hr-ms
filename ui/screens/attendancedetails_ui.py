@@ -23,7 +23,7 @@ class Ui_AttendanceDetailsWindow(object):
     def setupUi(self, AttendanceDetailsWindow):
         if not AttendanceDetailsWindow.objectName():
             AttendanceDetailsWindow.setObjectName(u"AttendanceDetailsWindow")
-        AttendanceDetailsWindow.resize(744, 491)
+        AttendanceDetailsWindow.resize(1009, 845)
         AttendanceDetailsWindow.setStyleSheet(u"background-color:#04395e;")
         self.centralwidget = QWidget(AttendanceDetailsWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -33,14 +33,6 @@ class Ui_AttendanceDetailsWindow(object):
         self.mainLayout.setObjectName(u"mainLayout")
         self.gridLayout = QGridLayout()
         self.gridLayout.setObjectName(u"gridLayout")
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout.addItem(self.horizontalSpacer_2, 0, 0, 1, 1)
-
-        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout.addItem(self.horizontalSpacer_3, 0, 2, 1, 1)
-
         self.dateField = QLineEdit(self.centralwidget)
         self.dateField.setObjectName(u"dateField")
         self.dateField.setStyleSheet(u"margin: 3px 0;border-radius:10px;\n"
@@ -49,12 +41,15 @@ class Ui_AttendanceDetailsWindow(object):
 "background-color:#FFFAFB;\n"
 "padding: 3px;")
 
-        self.gridLayout.addWidget(self.dateField, 0, 3, 1, 1)
+        self.gridLayout.addWidget(self.dateField, 0, 2, 1, 1)
+
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_3, 0, 1, 1, 1)
 
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
         self.label.setStyleSheet(u"font-size: 20px;\n"
-"background-color: #004e89;\n"
 "color:#FFFAFB;\n"
 "font:bold;\n"
 "border-radius:15px;\n"
@@ -62,11 +57,7 @@ class Ui_AttendanceDetailsWindow(object):
 "padding:10px;\n"
 "margin:0 10px;")
 
-        self.gridLayout.addWidget(self.label, 0, 1, 1, 1)
-
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout.addItem(self.horizontalSpacer, 0, 4, 1, 1)
+        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
 
 
         self.mainLayout.addLayout(self.gridLayout)

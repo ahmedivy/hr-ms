@@ -19,6 +19,17 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
+        <widget class="QLabel" name="label">
+         <property name="styleSheet">
+          <string notr="true">font-size: 30px;
+color: white;</string>
+         </property>
+         <property name="text">
+          <string>Salary Details</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="horizontalSpacer">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -33,6 +44,35 @@
        </item>
        <item>
         <widget class="QPushButton" name="generateSalaryButton">
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+background-color: #274c77;
+color:#FFFAFB;
+font:bold;
+padding: 5px;
+border-radius:7px;
+width: 100px;
+margin-right:15px;
+height: 25px;
+}
+
+QPushButton:hover {
+  background-color: #4cc9f0;
+  color:black;
+font:bold;
+padding: 5px;
+border-radius:7px;
+}
+
+QPushButton:clicked{
+ background-color: rgb(255, 233, 67);
+  color:black;
+font:bold;
+padding: 3px;
+border-radius:10px;
+
+}</string>
+         </property>
          <property name="text">
           <string>Generate Salary</string>
          </property>
@@ -58,7 +98,15 @@
           </spacer>
          </item>
          <item>
-          <widget class="QComboBox" name="orgField"/>
+          <widget class="QComboBox" name="orgField">
+           <property name="styleSheet">
+            <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+width:250px;
+height: 25px;
+margin: 3px 0;</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>

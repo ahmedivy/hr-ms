@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
+ <author>ahmed</author>
  <class>AddEmployeeWindow</class>
  <widget class="QMainWindow" name="AddEmployeeWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>792</width>
-    <height>746</height>
+    <width>508</width>
+    <height>732</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,453 +18,413 @@
    <string notr="true">background-color:#04395e;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_3">
+   <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <property name="leftMargin">
-       <number>30</number>
-      </property>
-      <property name="topMargin">
-       <number>30</number>
-      </property>
-      <property name="rightMargin">
-       <number>30</number>
-      </property>
-      <property name="bottomMargin">
-       <number>30</number>
-      </property>
+     <layout class="QVBoxLayout" name="mainLayout" stretch="2,8,0">
       <item>
-       <widget class="QFrame" name="frame">
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
+       <layout class="QHBoxLayout" name="titleBar">
+        <property name="leftMargin">
+         <number>20</number>
         </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
+        <property name="topMargin">
+         <number>10</number>
         </property>
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <item>
-          <widget class="QLabel" name="label">
-           <property name="font">
-            <font>
-             <pointsize>-1</pointsize>
-             <italic>false</italic>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">font-size: 20px;
-background-color: #004e89;
-color:#FFFAFB;
-font:bold;
-border-radius:15px;
-</string>
-           </property>
-           <property name="text">
-            <string>ADD NEW EMPLOYEE</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QFrame" name="frame_2">
-           <property name="styleSheet">
-            <string notr="true">max-width:400px;</string>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::StyledPanel</enum>
-           </property>
-           <property name="frameShadow">
-            <enum>QFrame::Raised</enum>
-           </property>
-           <layout class="QFormLayout" name="formLayout">
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_2">
-              <property name="styleSheet">
-               <string notr="true">font:bold;
-color: #FFFAFB;
-text-transform:uppercase;
-text-decoration:underline;
-font-size:13px;
-text-align:centre;</string>
-              </property>
-              <property name="text">
-               <string>First Name</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QLineEdit" name="fnameField">
-              <property name="maximumSize">
-               <size>
-                <width>250</width>
-                <height>16777215</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">border-radius:10px;
-max-width:250px;
-height: 25px;
-background-color:#FFFAFB;
-margin: 3px 0;</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="label_3">
-              <property name="styleSheet">
-               <string notr="true">font:bold;
-color: #FFFAFB;
-text-transform:uppercase;
-text-decoration:underline;
-font-size:13px;
-text-align:centre;</string>
-              </property>
-              <property name="text">
-               <string>Last Name</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QLineEdit" name="lnameField">
-              <property name="styleSheet">
-               <string notr="true">border-radius:10px;
-max-width:250px;
-height: 25px;
-background-color:#FFFAFB;
-margin: 3px 0;</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="label_4">
-              <property name="styleSheet">
-               <string notr="true">font:bold;
-color: #FFFAFB;
-text-transform:uppercase;
-text-decoration:underline;
-font-size:13px;</string>
-              </property>
-              <property name="text">
-               <string>CNIC</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="1">
-             <widget class="QLineEdit" name="cnicField">
-              <property name="styleSheet">
-               <string notr="true">margin: 3px 0;
-border-radius:10px;
-max-width:250px;
-height: 25px;
-background-color:#FFFAFB;</string>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="0">
-             <widget class="QLabel" name="label_5">
-              <property name="styleSheet">
-               <string notr="true">font:bold;
-color: #FFFAFB;
-text-transform:uppercase;
-text-decoration:underline;
-font-size:13px;</string>
-              </property>
-              <property name="text">
-               <string>Phone Number</string>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="1">
-             <widget class="QLineEdit" name="phoneField">
-              <property name="styleSheet">
-               <string notr="true">margin: 3px 0;
-border-radius:10px;
-max-width:250px;
-height: 25px;
-background-color:#FFFAFB;</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="0">
-             <widget class="QLabel" name="label_6">
-              <property name="styleSheet">
-               <string notr="true">font:bold;
-color: #FFFAFB;
-text-transform:uppercase;
-text-decoration:underline;
-font-size:13px;</string>
-              </property>
-              <property name="text">
-               <string>Email</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="1">
-             <widget class="QLineEdit" name="emailField">
-              <property name="styleSheet">
-               <string notr="true">background-color:#FFFAFB;
-border-radius:10px;
-max-width:250px;
-height: 25px;
-margin: 3px 0;</string>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="0">
-             <widget class="QLabel" name="label_7">
-              <property name="styleSheet">
-               <string notr="true">font:bold;
-color: #FFFAFB;
-text-transform:uppercase;
-text-decoration:underline;
-font-size:13px;</string>
-              </property>
-              <property name="text">
-               <string>Position</string>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="1">
-             <widget class="QLineEdit" name="lineEdit">
-              <property name="styleSheet">
-               <string notr="true">margin: 3px 0;border-radius:10px;
-max-width:250px;
-height: 25px;
-background-color:#FFFAFB;</string>
-              </property>
-             </widget>
-            </item>
-            <item row="6" column="0">
-             <widget class="QLabel" name="label_8">
-              <property name="styleSheet">
-               <string notr="true">font:bold;
-color: #FFFAFB;
-text-transform:uppercase;
-text-decoration:underline;
-font-size:13px;</string>
-              </property>
-              <property name="text">
-               <string>Date of Birth</string>
-              </property>
-             </widget>
-            </item>
-            <item row="6" column="1">
-             <widget class="QDateEdit" name="dateEdit">
-              <property name="styleSheet">
-               <string notr="true">margin: 3px 0;border-radius:10px;
-max-width:250px;
-height: 25px;
-background-color:#FFFAFB;</string>
-              </property>
-             </widget>
-            </item>
-            <item row="7" column="0">
-             <widget class="QLabel" name="label_9">
-              <property name="styleSheet">
-               <string notr="true">font:bold;
-color: #FFFAFB;
-text-transform:uppercase;
-text-decoration:underline;
-font-size:13px;</string>
-              </property>
-              <property name="text">
-               <string>Address</string>
-              </property>
-             </widget>
-            </item>
-            <item row="7" column="1">
-             <widget class="QLineEdit" name="addressField">
-              <property name="styleSheet">
-               <string notr="true">margin: 3px 0;border-radius:10px;
-max-width:250px;
-height: 25px;
-background-color:#FFFAFB;</string>
-              </property>
-             </widget>
-            </item>
-            <item row="8" column="0">
-             <widget class="QLabel" name="label_10">
-              <property name="styleSheet">
-               <string notr="true">font:bold;
-color: #FFFAFB;
-text-transform:uppercase;
-text-decoration:underline;
-font-size:13px;</string>
-              </property>
-              <property name="text">
-               <string>City</string>
-              </property>
-             </widget>
-            </item>
-            <item row="8" column="1">
-             <widget class="QLineEdit" name="cityField">
-              <property name="styleSheet">
-               <string notr="true">margin: 3px 0;border-radius:10px;
-max-width:250px;
-height: 25px;
-background-color:#FFFAFB;</string>
-              </property>
-             </widget>
-            </item>
-            <item row="9" column="0">
-             <widget class="QLabel" name="label_11">
-              <property name="styleSheet">
-               <string notr="true">font:bold;
-color: #FFFAFB;
-text-transform:uppercase;
-text-decoration:underline;
-font-size:13px;</string>
-              </property>
-              <property name="text">
-               <string>State</string>
-              </property>
-             </widget>
-            </item>
-            <item row="9" column="1">
-             <widget class="QLineEdit" name="stateField">
-              <property name="styleSheet">
-               <string notr="true">margin: 3px 0;background-color:#FFFAFB;
-border-radius:10px;
-max-width:250px;
-height: 25px;</string>
-              </property>
-             </widget>
-            </item>
-            <item row="10" column="0">
-             <widget class="QLabel" name="label_12">
-              <property name="styleSheet">
-               <string notr="true">font:bold;
-color: #FFFAFB;
-text-transform:uppercase;
-text-decoration:underline;
-font-size:13px;</string>
-              </property>
-              <property name="text">
-               <string>Country</string>
-              </property>
-             </widget>
-            </item>
-            <item row="10" column="1">
-             <widget class="QLineEdit" name="countryField">
-              <property name="styleSheet">
-               <string notr="true">margin: 3px 0;background-color:#FFFAFB;
-border-radius:10px;
-max-width:250px;
-height: 25px;</string>
-              </property>
-             </widget>
-            </item>
-            <item row="11" column="0">
-             <widget class="QLabel" name="label_13">
-              <property name="styleSheet">
-               <string notr="true">font:bold;
-color: #FFFAFB;
-text-transform:uppercase;
-text-decoration:underline;
-font-size:13px;</string>
-              </property>
-              <property name="text">
-               <string>Zip code</string>
-              </property>
-             </widget>
-            </item>
-            <item row="11" column="1">
-             <widget class="QLineEdit" name="zipField">
-              <property name="styleSheet">
-               <string notr="true">margin: 3px 0;background-color:#FFFAFB;
-border-radius:10px;
-max-width:250px;
-height: 25px;</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </item>
-        </layout>
-       </widget>
+        <property name="rightMargin">
+         <number>20</number>
+        </property>
+        <property name="bottomMargin">
+         <number>10</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="styleSheet">
+           <string notr="true">font-size: 35px;
+color: white</string>
+          </property>
+          <property name="text">
+           <string>Add Employee</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
       </item>
       <item>
-       <widget class="QFrame" name="frame_3">
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
+       <layout class="QFormLayout" name="formLayout">
+        <property name="horizontalSpacing">
+         <number>10</number>
         </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
+        <property name="verticalSpacing">
+         <number>15</number>
         </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
-          <spacer name="horizontalSpacer">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QPushButton" name="cancelButton">
-           <property name="styleSheet">
-            <string notr="true">QPushButton{
-background-color: #274c77;
-color:#FFFAFB;
-font:bold;
-padding: 5px;
-border-radius:7px;
-width: 100px;
-margin-right:15px;
+        <property name="leftMargin">
+         <number>20</number>
+        </property>
+        <property name="topMargin">
+         <number>10</number>
+        </property>
+        <property name="rightMargin">
+         <number>20</number>
+        </property>
+        <property name="bottomMargin">
+         <number>10</number>
+        </property>
+        <item row="0" column="0">
+         <widget class="QLabel" name="fnameLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
+          <property name="text">
+           <string>First Name</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="fnameField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
 height: 25px;
-}
-
-QPushButton:hover {
-  background-color: #4cc9f0;
-  color:black;
-font:bold;
-padding: 5px;
-border-radius:7px;
-}
 </string>
-           </property>
-           <property name="text">
-            <string>Cancel</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="okButton">
-           <property name="styleSheet">
-            <string notr="true">QPushButton{
-background-color: #274c77;
-color:#FFFAFB;
-font:bold;
-padding: 5px;
-border-radius:7px;
-width: 100px;
-height:25px;
-margin-right:15px;
-}
-
-QPushButton:hover {
- background-color: #4cc9f0;
- color:black;
-font:bold;
-padding: 5px;
-border-radius:7px;
-}</string>
-           </property>
-           <property name="text">
-            <string>Confirm</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="lnameLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
+          <property name="text">
+           <string>Last Name</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="lnameField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="orgLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
+          <property name="text">
+           <string>Organization</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QComboBox" name="orgField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="posLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
+          <property name="text">
+           <string>Position</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLineEdit" name="posField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="cnicLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
+          <property name="text">
+           <string>CNIC</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QLineEdit" name="cnicField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="rateLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
+          <property name="text">
+           <string>Hourly Rate</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QDoubleSpinBox" name="rateField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="emailLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
+          <property name="text">
+           <string>Email</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QLineEdit" name="emailField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <widget class="QLabel" name="numberLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
+          <property name="text">
+           <string>Phone Number</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1">
+         <widget class="QLineEdit" name="phoneField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0">
+         <widget class="QLabel" name="streetLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
+          <property name="text">
+           <string>Street Address</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="1">
+         <widget class="QLineEdit" name="streetField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="0">
+         <widget class="QLabel" name="cityLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
+          <property name="text">
+           <string>City</string>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="1">
+         <widget class="QLineEdit" name="cityField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="0">
+         <widget class="QLabel" name="stateLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
+          <property name="text">
+           <string>State</string>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="1">
+         <widget class="QLineEdit" name="stateField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
+        </item>
+        <item row="11" column="0">
+         <widget class="QLabel" name="zipLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
+          <property name="text">
+           <string>Zip Code</string>
+          </property>
+         </widget>
+        </item>
+        <item row="11" column="1">
+         <widget class="QLineEdit" name="zipField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
+        </item>
+        <item row="12" column="0">
+         <widget class="QLabel" name="countryLabel">
+          <property name="styleSheet">
+           <string notr="true">font:bold;
+color: #FFFAFB;
+text-transform:uppercase;
+text-decoration:underline;
+font-size:13px;</string>
+          </property>
+          <property name="text">
+           <string>Country</string>
+          </property>
+         </widget>
+        </item>
+        <item row="12" column="1">
+         <widget class="QLineEdit" name="countryField">
+          <property name="styleSheet">
+           <string notr="true">background-color:#FFFAFB;
+border-radius:10px;
+height: 25px;
+</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="confirmButton">
+          <property name="text">
+           <string>Confirm</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="cancelButton">
+          <property name="text">
+           <string>Cancel</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>

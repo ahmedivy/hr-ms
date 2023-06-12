@@ -2,6 +2,7 @@ from PySide6.QtWidgets import QMainWindow, QHeaderView
 from PySide6.QtCore import QAbstractTableModel, Qt, QModelIndex
 
 from core.database import cursor
+from ui.static.css import tableViewStyles
 from ui.screens.attendancedetails_ui import Ui_AttendanceDetailsWindow
 
 class AttendanceDetailsModel(QAbstractTableModel):
@@ -51,7 +52,8 @@ class AttendanceDetailsWindow(QMainWindow):
         self.ui.setupUi(self)
         
         self.attendance_id = attendance_id
-        
+        self.ui.tableView.setStyleSheet(tableViewStyles)
+
         self.populateDateField()
         self.loadAttendanceDetails()
         
@@ -67,7 +69,9 @@ class AttendanceDetailsWindow(QMainWindow):
         stmt = f"SELECT atd_date FROM Attendance WHERE atd_id = {self.attendance_id}"
         cursor.execute(stmt)
         date = cursor.fetchone()[0]
-        self.ui.dateField.setText(str(date))
+        label = f'Attendance for {date}'
+        self.ui.dateField.setText(label)
+        self.ui.dateField.setReadOnly(True)
         
         
         
