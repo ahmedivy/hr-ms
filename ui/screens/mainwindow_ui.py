@@ -15,9 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLayout,
-    QLineEdit, QMainWindow, QPushButton, QSizePolicy,
-    QSpacerItem, QStackedWidget, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
+    QLabel, QLayout, QLineEdit, QMainWindow,
+    QPushButton, QSizePolicy, QSpacerItem, QStackedWidget,
+    QVBoxLayout, QWidget)
 import images_rc
 
 class Ui_MainWindow(object):
@@ -38,6 +39,18 @@ class Ui_MainWindow(object):
         self.menuLayout.setObjectName(u"menuLayout")
         self.menuLayout.setSizeConstraint(QLayout.SetMaximumSize)
         self.menuLayout.setContentsMargins(-1, 100, -1, -1)
+        self.label = QLabel(self.centralwidget)
+        self.label.setObjectName(u"label")
+        self.label.setStyleSheet(u"font-size: 20px;\n"
+"background-color: #004e89;\n"
+"color:#FFFAFB;\n"
+"font:bold;\n"
+"padding: 0 5px;\n"
+"border-radius:10px;\n"
+"")
+
+        self.menuLayout.addWidget(self.label)
+
         self.dashboardButton = QPushButton(self.centralwidget)
         self.dashboardButton.setObjectName(u"dashboardButton")
         self.dashboardButton.setStyleSheet(u"QPushButton{\n"
@@ -353,9 +366,97 @@ class Ui_MainWindow(object):
         self.stackedWidget.setObjectName(u"stackedWidget")
         self.employeeScreen = QWidget()
         self.employeeScreen.setObjectName(u"employeeScreen")
+        self.verticalLayoutWidget = QWidget(self.employeeScreen)
+        self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
+        self.verticalLayoutWidget.setGeometry(QRect(10, 50, 312, 80))
+        self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.label_2 = QLabel(self.verticalLayoutWidget)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setStyleSheet(u"font-size: 20px;\n"
+"background-color: #004e89;\n"
+"color:#FFFAFB;\n"
+"font:bold;\n"
+"padding: 0 5px;\n"
+"border-radius:20px;\n"
+"")
+
+        self.verticalLayout.addWidget(self.label_2)
+
+        self.verticalLayoutWidget_2 = QWidget(self.employeeScreen)
+        self.verticalLayoutWidget_2.setObjectName(u"verticalLayoutWidget_2")
+        self.verticalLayoutWidget_2.setGeometry(QRect(10, 150, 321, 80))
+        self.verticalLayout_3 = QVBoxLayout(self.verticalLayoutWidget_2)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.label_3 = QLabel(self.verticalLayoutWidget_2)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setStyleSheet(u"font-size: 20px;\n"
+"background-color: #004e89;\n"
+"color:#FFFAFB;\n"
+"font:bold;\n"
+"padding: 14px;\n"
+"border-radius:20px;\n"
+"")
+
+        self.verticalLayout_3.addWidget(self.label_3)
+
+        self.verticalLayoutWidget_3 = QWidget(self.employeeScreen)
+        self.verticalLayoutWidget_3.setObjectName(u"verticalLayoutWidget_3")
+        self.verticalLayoutWidget_3.setGeometry(QRect(359, 59, 758, 171))
+        self.verticalLayout_4 = QVBoxLayout(self.verticalLayoutWidget_3)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_2 = QGridLayout()
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.label_4 = QLabel(self.verticalLayoutWidget_3)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setStyleSheet(u"font-size: 20px;\n"
+"background-color: #004e89;\n"
+"color:#FFFAFB;\n"
+"font:bold;\n"
+"padding: 0 5px;\n"
+"border-radius:10px;\n"
+"")
+
+        self.gridLayout_2.addWidget(self.label_4, 0, 0, 1, 1)
+
+
+        self.verticalLayout_4.addLayout(self.gridLayout_2)
+
+        self.verticalLayoutWidget_4 = QWidget(self.employeeScreen)
+        self.verticalLayoutWidget_4.setObjectName(u"verticalLayoutWidget_4")
+        self.verticalLayoutWidget_4.setGeometry(QRect(29, 279, 985, 301))
+        self.verticalLayout_5 = QVBoxLayout(self.verticalLayoutWidget_4)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_7 = QVBoxLayout()
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.label_5 = QLabel(self.verticalLayoutWidget_4)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setStyleSheet(u"font-size: 20px;\n"
+"background-color: #004e89;\n"
+"color:#FFFAFB;\n"
+"font:bold;\n"
+"padding: 0 5px;\n"
+"border-radius:10px;\n"
+"")
+
+        self.verticalLayout_7.addWidget(self.label_5)
+
+
+        self.verticalLayout_5.addLayout(self.verticalLayout_7)
+
         self.stackedWidget.addWidget(self.employeeScreen)
         self.page_2 = QWidget()
         self.page_2.setObjectName(u"page_2")
+        self.gridLayoutWidget = QWidget(self.page_2)
+        self.gridLayoutWidget.setObjectName(u"gridLayoutWidget")
+        self.gridLayoutWidget.setGeometry(QRect(10, 30, 221, 101))
+        self.gridLayout = QGridLayout(self.gridLayoutWidget)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.stackedWidget.addWidget(self.page_2)
 
         self.horizontalLayout.addWidget(self.stackedWidget)
@@ -367,7 +468,6 @@ class Ui_MainWindow(object):
 
         self.mainLayout.addLayout(self.bodyLayout)
 
-        self.mainLayout.setStretch(0, 15)
         self.mainLayout.setStretch(2, 85)
 
         self.horizontalLayout_2.addLayout(self.mainLayout)
@@ -376,7 +476,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -384,6 +484,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"HR-MS", None))
         self.dashboardButton.setText(QCoreApplication.translate("MainWindow", u"Dashboard", None))
         self.organizationButton.setText(QCoreApplication.translate("MainWindow", u"Organizations", None))
 #if QT_CONFIG(shortcut)
@@ -394,5 +495,9 @@ class Ui_MainWindow(object):
         self.attendanceButton.setText(QCoreApplication.translate("MainWindow", u"Attendance", None))
         self.loanButton.setText(QCoreApplication.translate("MainWindow", u"Loans", None))
         self.pushButton_6.setText(QCoreApplication.translate("MainWindow", u"Search", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Our Successful Employees: 670", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Trusteb by 27+ Organizations", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"For More Queries , contact us at +923001234567 or Email is at HR@Hrms.com", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"Our employess salary graph:    setting kr lein apai ty ethy graph pa la", None))
     # retranslateUi
 

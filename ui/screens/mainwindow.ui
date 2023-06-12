@@ -20,7 +20,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
-     <layout class="QHBoxLayout" name="mainLayout" stretch="15,0,85">
+     <layout class="QHBoxLayout" name="mainLayout" stretch="0,0,85">
       <item>
        <layout class="QVBoxLayout" name="menuLayout">
         <property name="spacing">
@@ -32,6 +32,22 @@
         <property name="topMargin">
          <number>100</number>
         </property>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="styleSheet">
+           <string notr="true">font-size: 20px;
+background-color: #004e89;
+color:#FFFAFB;
+font:bold;
+padding: 0 5px;
+border-radius:10px;
+</string>
+          </property>
+          <property name="text">
+           <string>HR-MS</string>
+          </property>
+         </widget>
+        </item>
         <item>
          <widget class="QPushButton" name="dashboardButton">
           <property name="styleSheet">
@@ -444,10 +460,143 @@ border-radius:10px;
            <item>
             <widget class="QStackedWidget" name="stackedWidget">
              <property name="currentIndex">
-              <number>1</number>
+              <number>0</number>
              </property>
-             <widget class="QWidget" name="employeeScreen"/>
-             <widget class="QWidget" name="page_2"/>
+             <widget class="QWidget" name="employeeScreen">
+              <widget class="QWidget" name="verticalLayoutWidget">
+               <property name="geometry">
+                <rect>
+                 <x>10</x>
+                 <y>50</y>
+                 <width>312</width>
+                 <height>80</height>
+                </rect>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout">
+                <item>
+                 <widget class="QLabel" name="label_2">
+                  <property name="styleSheet">
+                   <string notr="true">font-size: 20px;
+background-color: #004e89;
+color:#FFFAFB;
+font:bold;
+padding: 0 5px;
+border-radius:20px;
+</string>
+                  </property>
+                  <property name="text">
+                   <string>Our Successful Employees: 670</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="verticalLayoutWidget_2">
+               <property name="geometry">
+                <rect>
+                 <x>10</x>
+                 <y>150</y>
+                 <width>321</width>
+                 <height>80</height>
+                </rect>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_3">
+                <item>
+                 <widget class="QLabel" name="label_3">
+                  <property name="styleSheet">
+                   <string notr="true">font-size: 20px;
+background-color: #004e89;
+color:#FFFAFB;
+font:bold;
+padding: 14px;
+border-radius:20px;
+</string>
+                  </property>
+                  <property name="text">
+                   <string>Trusteb by 27+ Organizations</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="verticalLayoutWidget_3">
+               <property name="geometry">
+                <rect>
+                 <x>359</x>
+                 <y>59</y>
+                 <width>758</width>
+                 <height>171</height>
+                </rect>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_4">
+                <item>
+                 <layout class="QGridLayout" name="gridLayout_2">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_4">
+                    <property name="styleSheet">
+                     <string notr="true">font-size: 20px;
+background-color: #004e89;
+color:#FFFAFB;
+font:bold;
+padding: 0 5px;
+border-radius:10px;
+</string>
+                    </property>
+                    <property name="text">
+                     <string>For More Queries , contact us at +923001234567 or Email is at HR@Hrms.com</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="verticalLayoutWidget_4">
+               <property name="geometry">
+                <rect>
+                 <x>29</x>
+                 <y>279</y>
+                 <width>985</width>
+                 <height>301</height>
+                </rect>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_5">
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_7">
+                  <item>
+                   <widget class="QLabel" name="label_5">
+                    <property name="styleSheet">
+                     <string notr="true">font-size: 20px;
+background-color: #004e89;
+color:#FFFAFB;
+font:bold;
+padding: 0 5px;
+border-radius:10px;
+</string>
+                    </property>
+                    <property name="text">
+                     <string>Our employess salary graph:    setting kr lein apai ty ethy graph pa la</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+             <widget class="QWidget" name="page_2">
+              <widget class="QWidget" name="gridLayoutWidget">
+               <property name="geometry">
+                <rect>
+                 <x>10</x>
+                 <y>30</y>
+                 <width>221</width>
+                 <height>101</height>
+                </rect>
+               </property>
+               <layout class="QGridLayout" name="gridLayout"/>
+              </widget>
+             </widget>
             </widget>
            </item>
           </layout>
