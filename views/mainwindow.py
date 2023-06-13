@@ -127,13 +127,10 @@ class MainWindow(QMainWindow):
 
         ax.set_facecolor('#004e89')
 
-        # Remove x-axis labels
         ax.set_xticklabels([])
 
-        # Adjust spacing between labels
         fig.tight_layout()
 
-        # Create a FigureCanvas instance, passing the figure object
         canvas = FigureCanvas(fig)
 
         return canvas
@@ -168,16 +165,12 @@ class MainWindow(QMainWindow):
 
         ax.set_facecolor('#004e89')
 
-        # Remove x-axis labels
         ax.set_xticklabels([])
 
-        # Change tick colors to white
         ax.tick_params(colors='white')
 
-        # Adjust spacing between labels
         fig.tight_layout()
 
-        # Create a FigureCanvas instance, passing the figure object
         canvas = FigureCanvas(fig)
 
         return canvas
