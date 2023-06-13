@@ -11,6 +11,7 @@
     <PreDeploy Include="dbo\Script.PreDeployment1.sql" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="dbo\indexes" />
     <Folder Include="dbo\triggers" />
   </ItemGroup>
   <Target Name="BeforeBuild">

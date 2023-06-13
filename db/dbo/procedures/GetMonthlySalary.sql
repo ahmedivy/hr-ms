@@ -19,8 +19,8 @@ BEGIN
         [dbo].[attendance] a ON a.atd_id = ad.atd_id
     WHERE
         a.org_id = @org_id
-        AND MONTH(atd_date) = @month
-        AND YEAR(atd_date) = @year
+        AND MONTH(a.atd_date) = @month
+        AND YEAR(a.atd_date) = @year
     GROUP BY
         e.emp_id,
         e.emp_firstname,
