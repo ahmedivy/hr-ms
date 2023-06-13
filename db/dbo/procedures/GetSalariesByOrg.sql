@@ -12,4 +12,8 @@ BEGIN
     JOIN [dbo].[salaryDetails] sd ON s.sal_id = sd.sal_id
   WHERE s.org_id = @org_id
   GROUP BY s.sal_id, s.sal_month, s.sal_year
+  ORDER BY CONVERT(DATE, '01-' + s.sal_month + '-' + s.sal_year, 103) DESC
 END
+
+
+DROP PROCEDURE IF EXISTS [dbo].[GetSalariesByOrg]

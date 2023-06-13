@@ -134,7 +134,13 @@ border-radius:10px;
           </spacer>
          </item>
          <item>
-          <widget class="QComboBox" name="orgField"/>
+          <widget class="QComboBox" name="orgField">
+           <property name="styleSheet">
+            <string notr="true">font-size: 18px;
+color: black;
+background-color: white</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>

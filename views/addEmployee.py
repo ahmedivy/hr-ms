@@ -23,7 +23,6 @@ class AddEmployeeWindow(QMainWindow):
 
     @Slot()
     def addEmployee(self):
-        # Get the field values from self.ui
         org_id = self.ui.orgField.currentData()
         firstname = self.ui.fnameField.text()
         lastname = self.ui.lnameField.text()
@@ -41,40 +40,9 @@ class AddEmployeeWindow(QMainWindow):
         if not firstname or not email or not phone or not position or not hourly_rate:
             return
 
-        # Insert the data into the SQL Server employee table
-        sql = '''
-            INSERT INTO [dbo].[employees] (
-                [org_id],
-                [emp_firstname],
-                [emp_lastname],
-                [emp_email],
-                [emp_phone],
-                [emp_address],
-                [emp_city],
-                [emp_state],
-                [emp_zip],
-                [emp_country],
-                [emp_position],
-                [emp_hourly_rate]
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        '''
-        params = (
-            org_id,
-            firstname,
-            lastname,
-            email,
-            phone,
-            address,
-            city,
-            state,
-            zip_code,
-            country,
-            position,
-            hourly_rate
-        )
-
-        cursor.execute(sql, params)
-        cursor.commit()   
+        stmt = f"INSERT INTO employees(org_id, emp_firstname, emp_lastname, emp_email, emp_phone, emp_address, emp_city, emp_state, emp_zip, emp_country, emp_position, emp_hourly_rate) VALUES ({org_id}, '{firstname}', '{lastname}', '{email}', '{phone}', '{address}', '{city}', '{state}', '{zip_code}', '{country}', '{position}', {hourly_rate})"
+        cursor.execute(stmt)
+        cursor.commit()
         
         self.close()
         self.parent.loadData()  

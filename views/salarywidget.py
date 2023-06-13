@@ -92,7 +92,7 @@ class SalaryWidget(QWidget):
         
     @Slot()
     def handleNew(self):
-        self.addSalaryWindow = AddSalaryWindow()
+        self.addSalaryWindow = AddSalaryWindow(parent=self)
         self.addSalaryWindow.show()
         
     def populate_fields(self):

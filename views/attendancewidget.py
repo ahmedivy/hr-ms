@@ -105,7 +105,7 @@ class AttendanceWidget(QWidget):
     @Slot()
     def handleAddAttendance(self):
         # Open Add Attendance Window
-        self.addAttendanceWindow = AddAttendanceWindow()
+        self.addAttendanceWindow = AddAttendanceWindow(self)
         self.addAttendanceWindow.show()
         
     

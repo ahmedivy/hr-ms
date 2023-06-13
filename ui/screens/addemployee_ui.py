@@ -312,11 +312,65 @@ class Ui_AddEmployeeWindow(object):
 
         self.confirmButton = QPushButton(self.centralwidget)
         self.confirmButton.setObjectName(u"confirmButton")
+        self.confirmButton.setStyleSheet(u"QPushButton{\n"
+"background-color: #274c77;\n"
+"color:#FFFAFB;\n"
+"font:bold;\n"
+"padding: 5px;\n"
+"border-radius:7px;\n"
+"width: 100px;\n"
+"margin-right:15px;\n"
+"height: 25px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"  background-color: #4cc9f0;\n"
+"  color:black;\n"
+"font:bold;\n"
+"padding: 5px;\n"
+"border-radius:7px;\n"
+"}\n"
+"\n"
+"QPushButton:clicked{\n"
+" background-color: rgb(255, 233, 67);\n"
+"  color:black;\n"
+"font:bold;\n"
+"padding: 3px;\n"
+"border-radius:10px;\n"
+"\n"
+"}")
 
         self.horizontalLayout_2.addWidget(self.confirmButton)
 
         self.cancelButton = QPushButton(self.centralwidget)
         self.cancelButton.setObjectName(u"cancelButton")
+        self.cancelButton.setStyleSheet(u"QPushButton{\n"
+"background-color: #274c77;\n"
+"color:#FFFAFB;\n"
+"font:bold;\n"
+"padding: 5px;\n"
+"border-radius:7px;\n"
+"width: 100px;\n"
+"margin-right:15px;\n"
+"height: 25px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"  background-color: #4cc9f0;\n"
+"  color:black;\n"
+"font:bold;\n"
+"padding: 5px;\n"
+"border-radius:7px;\n"
+"}\n"
+"\n"
+"QPushButton:clicked{\n"
+" background-color: rgb(255, 233, 67);\n"
+"  color:black;\n"
+"font:bold;\n"
+"padding: 3px;\n"
+"border-radius:10px;\n"
+"\n"
+"}")
 
         self.horizontalLayout_2.addWidget(self.cancelButton)
 

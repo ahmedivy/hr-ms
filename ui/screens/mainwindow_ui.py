@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1056, 770)
+        MainWindow.resize(1225, 949)
         MainWindow.setStyleSheet(u"background-color:#04395e;\n"
 "")
         self.centralwidget = QWidget(MainWindow)
@@ -38,15 +38,15 @@ class Ui_MainWindow(object):
         self.menuLayout.setSpacing(6)
         self.menuLayout.setObjectName(u"menuLayout")
         self.menuLayout.setSizeConstraint(QLayout.SetMaximumSize)
-        self.menuLayout.setContentsMargins(-1, 100, -1, -1)
+        self.menuLayout.setContentsMargins(-1, 0, -1, -1)
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
-        self.label.setStyleSheet(u"font-size: 20px;\n"
-"background-color: #004e89;\n"
+        self.label.setStyleSheet(u"font-size: 30px;\n"
 "color:#FFFAFB;\n"
 "font:bold;\n"
 "padding: 0 5px;\n"
 "border-radius:10px;\n"
+"margin-bottom:100px\n"
 "")
 
         self.menuLayout.addWidget(self.label)
@@ -71,6 +71,7 @@ class Ui_MainWindow(object):
 "font:bold;\n"
 "padding: 5px;\n"
 "border-radius:7px;\n"
+"height: 30px\n"
 "}\n"
 "\n"
 "QPushButton:clicked{\n"
@@ -342,10 +343,6 @@ class Ui_MainWindow(object):
 
         self.titlebarLayout.addWidget(self.pushButton_6)
 
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.titlebarLayout.addItem(self.horizontalSpacer)
-
 
         self.bodyLayout.addLayout(self.titlebarLayout)
 
@@ -366,87 +363,70 @@ class Ui_MainWindow(object):
         self.stackedWidget.setObjectName(u"stackedWidget")
         self.employeeScreen = QWidget()
         self.employeeScreen.setObjectName(u"employeeScreen")
-        self.verticalLayoutWidget = QWidget(self.employeeScreen)
-        self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
-        self.verticalLayoutWidget.setGeometry(QRect(10, 50, 312, 80))
-        self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget)
+        self.horizontalLayout_3 = QHBoxLayout(self.employeeScreen)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.label_2 = QLabel(self.verticalLayoutWidget)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setStyleSheet(u"font-size: 20px;\n"
-"background-color: #004e89;\n"
-"color:#FFFAFB;\n"
-"font:bold;\n"
-"padding: 0 5px;\n"
-"border-radius:20px;\n"
-"")
-
-        self.verticalLayout.addWidget(self.label_2)
-
-        self.verticalLayoutWidget_2 = QWidget(self.employeeScreen)
-        self.verticalLayoutWidget_2.setObjectName(u"verticalLayoutWidget_2")
-        self.verticalLayoutWidget_2.setGeometry(QRect(10, 150, 321, 80))
-        self.verticalLayout_3 = QVBoxLayout(self.verticalLayoutWidget_2)
+        self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.verticalLayout_3 = QVBoxLayout()
+        self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.label_3 = QLabel(self.verticalLayoutWidget_2)
+        self.verticalLayout_3.setContentsMargins(-1, -1, 0, -1)
+        self.label_2 = QLabel(self.employeeScreen)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setStyleSheet(u"font-size: 40px;\n"
+"color: white;\n"
+"background-color:#004e89;\n"
+"padding: 10px")
+
+        self.verticalLayout_3.addWidget(self.label_2)
+
+        self.horizontalLayout_5 = QHBoxLayout()
+        self.horizontalLayout_5.setSpacing(0)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.label_3 = QLabel(self.employeeScreen)
         self.label_3.setObjectName(u"label_3")
-        self.label_3.setStyleSheet(u"font-size: 20px;\n"
-"background-color: #004e89;\n"
-"color:#FFFAFB;\n"
-"font:bold;\n"
-"padding: 14px;\n"
-"border-radius:20px;\n"
-"")
+        self.label_3.setStyleSheet(u"font-size: 40px;\n"
+"color: white;\n"
+"background-color:#004e89;\n"
+"padding: 10px")
 
-        self.verticalLayout_3.addWidget(self.label_3)
+        self.horizontalLayout_5.addWidget(self.label_3)
 
-        self.verticalLayoutWidget_3 = QWidget(self.employeeScreen)
-        self.verticalLayoutWidget_3.setObjectName(u"verticalLayoutWidget_3")
-        self.verticalLayoutWidget_3.setGeometry(QRect(359, 59, 758, 171))
-        self.verticalLayout_4 = QVBoxLayout(self.verticalLayoutWidget_3)
-        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
-        self.gridLayout_2 = QGridLayout()
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.label_4 = QLabel(self.verticalLayoutWidget_3)
-        self.label_4.setObjectName(u"label_4")
-        self.label_4.setStyleSheet(u"font-size: 20px;\n"
-"background-color: #004e89;\n"
-"color:#FFFAFB;\n"
-"font:bold;\n"
-"padding: 0 5px;\n"
-"border-radius:10px;\n"
-"")
+        self.empCountLabel = QLabel(self.employeeScreen)
+        self.empCountLabel.setObjectName(u"empCountLabel")
+        self.empCountLabel.setStyleSheet(u"font-size: 40px;\n"
+"color: white;\n"
+"background-color:#004e89")
 
-        self.gridLayout_2.addWidget(self.label_4, 0, 0, 1, 1)
+        self.horizontalLayout_5.addWidget(self.empCountLabel)
 
 
-        self.verticalLayout_4.addLayout(self.gridLayout_2)
-
-        self.verticalLayoutWidget_4 = QWidget(self.employeeScreen)
-        self.verticalLayoutWidget_4.setObjectName(u"verticalLayoutWidget_4")
-        self.verticalLayoutWidget_4.setGeometry(QRect(29, 279, 985, 301))
-        self.verticalLayout_5 = QVBoxLayout(self.verticalLayoutWidget_4)
-        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_7 = QVBoxLayout()
-        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
-        self.label_5 = QLabel(self.verticalLayoutWidget_4)
-        self.label_5.setObjectName(u"label_5")
-        self.label_5.setStyleSheet(u"font-size: 20px;\n"
-"background-color: #004e89;\n"
-"color:#FFFAFB;\n"
-"font:bold;\n"
-"padding: 0 5px;\n"
-"border-radius:10px;\n"
-"")
-
-        self.verticalLayout_7.addWidget(self.label_5)
+        self.verticalLayout_3.addLayout(self.horizontalLayout_5)
 
 
-        self.verticalLayout_5.addLayout(self.verticalLayout_7)
+        self.horizontalLayout_4.addLayout(self.verticalLayout_3)
+
+        self.empCountGraph = QVBoxLayout()
+        self.empCountGraph.setObjectName(u"empCountGraph")
+
+        self.horizontalLayout_4.addLayout(self.empCountGraph)
+
+        self.horizontalLayout_4.setStretch(0, 4)
+        self.horizontalLayout_4.setStretch(1, 8)
+
+        self.verticalLayout.addLayout(self.horizontalLayout_4)
+
+        self.salaryGraph = QHBoxLayout()
+        self.salaryGraph.setObjectName(u"salaryGraph")
+
+        self.verticalLayout.addLayout(self.salaryGraph)
+
+        self.verticalLayout.setStretch(0, 4)
+        self.verticalLayout.setStretch(1, 6)
+
+        self.horizontalLayout_3.addLayout(self.verticalLayout)
 
         self.stackedWidget.addWidget(self.employeeScreen)
         self.page_2 = QWidget()
@@ -468,7 +448,9 @@ class Ui_MainWindow(object):
 
         self.mainLayout.addLayout(self.bodyLayout)
 
-        self.mainLayout.setStretch(2, 85)
+        self.mainLayout.setStretch(0, 1)
+        self.mainLayout.setStretch(1, 1)
+        self.mainLayout.setStretch(2, 5)
 
         self.horizontalLayout_2.addLayout(self.mainLayout)
 
@@ -495,9 +477,8 @@ class Ui_MainWindow(object):
         self.attendanceButton.setText(QCoreApplication.translate("MainWindow", u"Attendance", None))
         self.loanButton.setText(QCoreApplication.translate("MainWindow", u"Loans", None))
         self.pushButton_6.setText(QCoreApplication.translate("MainWindow", u"Search", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Our Successful Employees: 670", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Trusteb by 27+ Organizations", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"For More Queries , contact us at +923001234567 or Email is at HR@Hrms.com", None))
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"Our employess salary graph:    setting kr lein apai ty ethy graph pa la", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Total Employees", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><img src=\":/images/resources/images/icons8-employee-80.png\"/></p></body></html>", None))
+        self.empCountLabel.setText(QCoreApplication.translate("MainWindow", u"5000", None))
     # retranslateUi
 

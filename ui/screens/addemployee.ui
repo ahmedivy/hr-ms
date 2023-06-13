@@ -412,6 +412,35 @@ height: 25px;
         </item>
         <item>
          <widget class="QPushButton" name="confirmButton">
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+background-color: #274c77;
+color:#FFFAFB;
+font:bold;
+padding: 5px;
+border-radius:7px;
+width: 100px;
+margin-right:15px;
+height: 25px;
+}
+
+QPushButton:hover {
+  background-color: #4cc9f0;
+  color:black;
+font:bold;
+padding: 5px;
+border-radius:7px;
+}
+
+QPushButton:clicked{
+ background-color: rgb(255, 233, 67);
+  color:black;
+font:bold;
+padding: 3px;
+border-radius:10px;
+
+}</string>
+          </property>
           <property name="text">
            <string>Confirm</string>
           </property>
@@ -419,6 +448,35 @@ height: 25px;
         </item>
         <item>
          <widget class="QPushButton" name="cancelButton">
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+background-color: #274c77;
+color:#FFFAFB;
+font:bold;
+padding: 5px;
+border-radius:7px;
+width: 100px;
+margin-right:15px;
+height: 25px;
+}
+
+QPushButton:hover {
+  background-color: #4cc9f0;
+  color:black;
+font:bold;
+padding: 5px;
+border-radius:7px;
+}
+
+QPushButton:clicked{
+ background-color: rgb(255, 233, 67);
+  color:black;
+font:bold;
+padding: 3px;
+border-radius:10px;
+
+}</string>
+          </property>
           <property name="text">
            <string>Cancel</string>
           </property>

@@ -10,12 +10,13 @@ from ui.screens.addsalary_ui import Ui_AddSalaryWindow
 
 class AddSalaryWindow(QMainWindow):
     
-    def __init__(self):
+    def __init__(self, parent=None):
         super(AddSalaryWindow, self).__init__()
         self.ui = Ui_AddSalaryWindow()
         self.ui.setupUi(self)
         
         self.setWindowTitle("Add Salary")
+        self.parent = parent
         
         self.populate_fields()
         
@@ -45,6 +46,8 @@ class AddSalaryWindow(QMainWindow):
         cursor.execute(stmt)
         cursor.commit()
                 
+        self.close()
+        self.parent.loadData()
         self.detailWindow = SalaryDetailWindow([_id, year, month])
         self.detailWindow.show()
         

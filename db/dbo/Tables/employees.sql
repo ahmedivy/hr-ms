@@ -28,3 +28,11 @@ ADD [emp_cnic] NVARCHAR(20) NULL
 GO
 
 SELECT TOP(1) * FROM Employees
+
+-- add default for hire date
+ALTER TABLE [dbo].[employees]
+ADD CONSTRAINT [DF_employees_emp_hire_date] DEFAULT (GETDATE()) FOR [emp_hire_date]
+
+-- Set DOB to allow nulls
+ALTER TABLE [dbo].[employees]
+ALTER COLUMN [emp_dob] DATE NULL

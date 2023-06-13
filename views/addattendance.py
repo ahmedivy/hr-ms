@@ -6,6 +6,7 @@ from PySide6.QtWidgets import QMainWindow, QFileDialog, QHeaderView, QPushButton
 
 
 from core.database import cursor
+from ui.static.css import tableViewStyles
 from ui.screens.addattendance_ui import Ui_AddAttendanceWindow
 
 
@@ -53,23 +54,27 @@ class AttendanceDetailsModel(QAbstractTableModel):
 
 class AddAttendanceWindow(QMainWindow):
 
-    def __init__(self):
+    def __init__(self, parent=None):
         super(AddAttendanceWindow, self).__init__()
         self.ui = Ui_AddAttendanceWindow()
         self.ui.setupUi(self)
         
+        self.parent = parent
+        
+        self.populateOrgBox()
         self.ui.uploadButton.clicked.connect(self.upload_attendance)
         
         today = date.today().strftime("%Y-%m-%d") + " (Today)"
         yesterday = (date.today() - timedelta(days=1)).strftime("%Y-%m-%d") + " (Yesterday)"
         self.ui.dateField.addItems([today, yesterday])
+        self.ui.tableView.setStyleSheet(tableViewStyles)
             
         self.ui.confirmButton.hide()
         self.ui.confirmButton.clicked.connect(self.confirm_attendance)
     
             
     def populateOrgBox(self):
-        stmt = "SELECT org_id, org_name FROM Organization"
+        stmt = "SELECT org_id, org_name FROM Organizations"
         cursor.execute(stmt)
         orgs = cursor.fetchall()
         
@@ -84,11 +89,12 @@ class AddAttendanceWindow(QMainWindow):
         org_id = self.ui.orgField.currentData()
         att_date = self.ui.dateField.currentText().split(" ")[0]
           
-        stmt = f"INSERT INTO Attendance (atd_date, org_id) VALUES ({att_date}, {org_id})"
+        stmt = f"INSERT INTO Attendance (atd_date, org_id) VALUES ('{att_date}', {org_id})"
+        print(stmt)
         cursor.execute(stmt)
         cursor.commit()
         
-        stmt = f"SELECT atd_id FROM Attendance WHERE atd_date = {att_date} AND org_id = {org_id}"
+        stmt = f"SELECT atd_id FROM Attendance WHERE atd_date = '{att_date}' AND org_id = {org_id}"
         cursor.execute(stmt)
         atd_id = cursor.fetchone()[0]
         
@@ -97,9 +103,12 @@ class AddAttendanceWindow(QMainWindow):
             time_in = self.model.data(self.model.index(ix, 2), Qt.DisplayRole)
             time_out = self.model.data(self.model.index(ix, 3), Qt.DisplayRole)
             
-            stmt = f"INSERT INTO AttendanceDetails (atd_id, emp_id, time_in, time_out) VALUES ({atd_id}, {emp_id}, {time_in}, {time_out})"
+            stmt = f"INSERT INTO AttendanceDetails (atd_id, emp_id, time_in, time_out) VALUES ({atd_id}, {emp_id}, '{time_in}', '{time_out}')"
             cursor.execute(stmt)
             cursor.commit()
+            
+        self.close()
+        self.parent.loadData()
         
     @Slot()
     def upload_attendance(self):

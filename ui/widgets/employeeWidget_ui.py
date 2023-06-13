@@ -121,6 +121,9 @@ class Ui_EmployeeWidget(object):
 
         self.orgField = QComboBox(EmployeeWidget)
         self.orgField.setObjectName(u"orgField")
+        self.orgField.setStyleSheet(u"font-size: 18px;\n"
+"color: black;\n"
+"background-color: white")
 
         self.filterBar.addWidget(self.orgField)
 
