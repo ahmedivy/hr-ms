@@ -96,3 +96,7 @@ SELECT * FROM employees WHERE emp_firstname = 'Ahmad'
 UPDATE Loans SET loan_status = 'Paid' WHERE loan_id = 107
 
 SELECT * FROM loans WHERE loan_id = 107
+
+SELECT * FROM organizations
+
+EXEC GetSalaryByOrg 115

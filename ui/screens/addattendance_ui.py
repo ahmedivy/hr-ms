@@ -82,7 +82,8 @@ class Ui_AddAttendanceWindow(object):
 
         self.dateField = QComboBox(self.centralwidget)
         self.dateField.setObjectName(u"dateField")
-        self.dateField.setStyleSheet(u"font-size: 16px")
+        self.dateField.setStyleSheet(u"font-size: 16px;\n"
+"color: white;")
 
         self.horizontalLayout_3.addWidget(self.dateField)
 
@@ -99,7 +100,8 @@ class Ui_AddAttendanceWindow(object):
 
         self.orgField = QComboBox(self.centralwidget)
         self.orgField.setObjectName(u"orgField")
-        self.orgField.setStyleSheet(u"font-size: 16px")
+        self.orgField.setStyleSheet(u"font-size: 16px;\n"
+"color: white;")
 
         self.horizontalLayout_3.addWidget(self.orgField)
 

@@ -378,7 +378,8 @@ class Ui_MainWindow(object):
         self.label_2.setStyleSheet(u"font-size: 40px;\n"
 "color: white;\n"
 "background-color:#004e89;\n"
-"padding: 10px")
+"padding: 10px;\n"
+"")
 
         self.verticalLayout_3.addWidget(self.label_2)
 

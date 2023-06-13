@@ -91,7 +91,7 @@ class MainWindow(QMainWindow):
             return orgs
 
         def get_salaries_by_org(org_id):
-            cursor.execute("EXEC [dbo].[GetSalariesByOrg] @org_id = ?", org_id)
+            cursor.execute("EXEC [dbo].[GetSalariesLast12] @org_id = ?", org_id)
             rows = cursor.fetchall()
             return rows
 
@@ -107,8 +107,8 @@ class MainWindow(QMainWindow):
             sal_months = []
             sal_net_amounts = []
 
-            for row in rows:
-                sal_months.append(row.sal_month)
+            for ix, row in enumerate(rows, start=1):
+                sal_months.append(ix)
                 sal_net_amounts.append(row.total_net)
 
             ax.plot(sal_months, sal_net_amounts, marker='o', label=name, color=colors(i))
@@ -123,7 +123,7 @@ class MainWindow(QMainWindow):
         ax.tick_params(axis='x', colors='white')
         ax.tick_params(axis='y', colors='white')
         ax.grid(False)
-        ax.legend(frameon=False, loc='upper left', bbox_to_anchor=(1, 1), facecolor='none', edgecolor='none')
+        ax.legend(frameon=False, loc='upper left', bbox_to_anchor=(1, 1), facecolor='none', edgecolor='none', labelcolor='white')
 
         ax.set_facecolor('#004e89')
 

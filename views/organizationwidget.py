@@ -94,9 +94,9 @@ class OrganizationWidget(QWidget):
         
     @Slot()
     def handleNew(self):
-        self.addOrgWindow = OrgDetails()
-        self.addOrgWindow.show(parent = self)
+        self.addOrgWindow = OrgDetails(parent = self, add_org = True)
+        self.addOrgWindow.show()
         
     def tableRefresh(self):
         self.loadData()
-          
+        self.addButtons()

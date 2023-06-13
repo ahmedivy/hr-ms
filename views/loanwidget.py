@@ -44,7 +44,7 @@ class LoanTableModel(QAbstractTableModel):
             elif index.column() == 4:
                 return str(loan[6])
             elif index.column() == 5:
-                return loan[7]
+                return str(loan[7])
             elif index.column() == 6:
                 return str(loan[8])         
             
@@ -67,6 +67,7 @@ class LoanWidget(QWidget):
         
         self.addButtons()
         self.ui.addButton.clicked.connect(self.handleNew)
+        self.ui.pendingCheckbox.hide()
         
     def loadData(self):
         stmt = f'EXEC GetLoans {self.ui.orgField.currentData()}'
@@ -101,9 +102,13 @@ class LoanWidget(QWidget):
         
     def addButtons(self):
         for ix in range(self.model.rowCount()):
-            button = QPushButton("Payment Done", self)
-            button.clicked.connect(self.handleClick)
-            self.ui.tableView.setIndexWidget(self.ui.tableView.model().index(ix, 7), button)
+            index_value = self.model.index(ix, 5).data()
+            
+            if index_value != "Paid":
+                button = QPushButton("Payment Done", self)
+                button.clicked.connect(self.handleClick)
+                self.ui.tableView.setIndexWidget(self.ui.tableView.model().index(ix, 7), button)
+
             
     @Slot()
     def handleClick(self):

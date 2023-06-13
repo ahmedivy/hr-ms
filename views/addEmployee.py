@@ -45,7 +45,7 @@ class AddEmployeeWindow(QMainWindow):
         cursor.commit()
         
         self.close()
-        self.parent.loadData()  
+        self.parent.loadEmployees()  
     
     def populateOrganizationComboBox(self):
         stmt = "SELECT org_id, org_name FROM Organizations"

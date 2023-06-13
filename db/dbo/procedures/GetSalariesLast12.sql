@@ -1,4 +1,4 @@
-CREATE PROCEDURE [dbo].[GetSalaryByOrg]
+CREATE PROCEDURE [dbo].[GetSalariesLast12]
   @org_id INT
 AS
 BEGIN

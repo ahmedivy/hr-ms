@@ -25,7 +25,11 @@ class OrgDetails(QMainWindow):
             self.populateData()
         else:
             self.org = None
-        
+            types = ["Public", "Private", "Government", "Non-Profit", "Profit"]
+            
+            for t in types:
+                self.ui.typeField.addItem(t)
+                    
         self.setWindowTitle(
             "Add New Organization" 
             if add_org else "Organization's Details"
@@ -78,6 +82,11 @@ class OrgDetails(QMainWindow):
         
         self.ui.okButton.setText("Edit" if state else "Save")
         
+        types = ["Public", "Private", "Government", "Non-Profit", "Profit"]
+        for t in types:
+            self.ui.typeField.addItem(t)
+        self.ui.typeField.setCurrentIndex(0)
+        
     @Slot()
     def handleOk(self):
         if self.ui.okButton.text() == "Edit":
@@ -93,7 +102,7 @@ class OrgDetails(QMainWindow):
             self.updateOrg()
             
     def createOrg(self):
-            proc_call = "{CALL CreateOrganization(?, ?, ?, ?, ?, ?, ?, ?, ?)}"
+            proc_call = "EXEC CreateOrganization ?, ?, ?, ?, ?, ?, ?, ?, ?"
     
             # Extract the values from the UI fields
             name = self.ui.nameField.text()
@@ -106,14 +115,25 @@ class OrgDetails(QMainWindow):
             _zip = self.ui.zipField.text()
             _type = self.ui.typeField.currentText()
             
+            
+#               @name NVARCHAR(50),
+#   @email NVARCHAR(50),
+#   @website NVARCHAR(50),
+#   @type NVARCHAR(50),
+#   @phone NVARCHAR(20),
+#   @city NVARCHAR(100),
+#   @address NVARCHAR(100),
+#   @state NVARCHAR(50),
+#   @country NVARCHAR(50),
+#   @zip NVARCHAR(20)
             # Execute the stored procedure
-            cursor.execute(proc_call, (name, email, phone, city, address, state, country, _zip, _type))
+            cursor.execute(proc_call, (name, email, _type, phone, city, address, state, country, _zip))
             cursor.commit()
             self.close()
             self.parent.tableRefresh()
             
     def updateOrg(self):
-            proc_call = "{CALL UpdateOrganization(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}"
+            proc_call = "EXEC UpdateOrganization ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?"
             
             print('Updating organization')
             
@@ -131,7 +151,7 @@ class OrgDetails(QMainWindow):
             _type = self.ui.typeField.currentText()
             
             # Execute the stored procedure
-            cursor.execute(proc_call, (_id, name, email, website, phone, city, address, state, country, _zip, _type))
+            cursor.execute(proc_call, (_id, name, email, website, _type, phone, city, address, state, country, _zip))
             cursor.commit()
             
             self.close()

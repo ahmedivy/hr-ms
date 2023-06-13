@@ -25,6 +25,8 @@ class EmpDetailsWindow(QMainWindow):
         self.loadEmployee(emp_id)
         
         self.ui.deleteButton.clicked.connect(self.deleteEmployee)
+        self.ui.editButton.hide()
+        self.ui.deleteButton.hide()
         
     def initializeFields(self):
         self.ui.rateField.setDecimals(2)

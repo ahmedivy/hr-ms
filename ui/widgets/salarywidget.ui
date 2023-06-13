@@ -102,9 +102,8 @@ border-radius:10px;
            <property name="styleSheet">
             <string notr="true">background-color:#FFFAFB;
 border-radius:10px;
-width:250px;
-height: 25px;
-margin: 3px 0;</string>
+margin: 3px 0;
+font-size: 16px</string>
            </property>
           </widget>
          </item>

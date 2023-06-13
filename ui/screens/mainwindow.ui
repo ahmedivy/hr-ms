@@ -470,7 +470,8 @@ border-radius:10px;
                         <string notr="true">font-size: 40px;
 color: white;
 background-color:#004e89;
-padding: 10px</string>
+padding: 10px;
+</string>
                        </property>
                        <property name="text">
                         <string>Total Employees</string>

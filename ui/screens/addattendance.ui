@@ -96,7 +96,8 @@ color: white</string>
           <item>
            <widget class="QComboBox" name="dateField">
             <property name="styleSheet">
-             <string notr="true">font-size: 16px</string>
+             <string notr="true">font-size: 16px;
+color: white;</string>
             </property>
            </widget>
           </item>
@@ -127,7 +128,8 @@ color: white</string>
           <item>
            <widget class="QComboBox" name="orgField">
             <property name="styleSheet">
-             <string notr="true">font-size: 16px</string>
+             <string notr="true">font-size: 16px;
+color: white;</string>
             </property>
            </widget>
           </item>

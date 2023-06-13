@@ -88,9 +88,8 @@ class Ui_SalaryWidget(object):
         self.orgField.setObjectName(u"orgField")
         self.orgField.setStyleSheet(u"background-color:#FFFAFB;\n"
 "border-radius:10px;\n"
-"width:250px;\n"
-"height: 25px;\n"
-"margin: 3px 0;")
+"margin: 3px 0;\n"
+"font-size: 16px")
 
         self.filterLayout.addWidget(self.orgField)
 

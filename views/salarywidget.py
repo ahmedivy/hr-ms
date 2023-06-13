@@ -66,7 +66,7 @@ class SalaryWidget(QWidget):
         
     def loadData(self):
         _id = self.ui.orgField.currentData()
-        stmt = f"EXEC GetSalariesByOrg {_id}"
+        stmt = f"EXEC GetSalaryByOrg {_id}"
         cursor.execute(stmt)
         
         salaries = cursor.fetchall()
