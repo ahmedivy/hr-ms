@@ -7,3 +7,14 @@ CREATE TABLE [dbo].[salaryDetails]
   [sal_net_amount] MONEY NOT NULL,
   PRIMARY KEY ([sal_id], [emp_id])
 )
+
+
+-- CONSTRAINTS
+ALTER TABLE [dbo].[salaryDetails] 
+ADD CONSTRAINT [CK_salaryDetails_sal_gross_amount] CHECK ([sal_gross_amount] >= 0)
+
+ALTER TABLE [dbo].[salaryDetails]
+ADD CONSTRAINT [CK_salaryDetails_sal_deductions] CHECK ([sal_deductions] >= 0)
+
+ALTER TABLE [dbo].[salaryDetails]
+ADD CONSTRAINT [CK_salaryDetails_sal_net_amount] CHECK ([sal_net_amount] >= 0)

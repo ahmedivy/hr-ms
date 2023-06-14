@@ -18,7 +18,7 @@ BEGIN
     @TotalEmployees - COUNT(CASE WHEN ad.atd_id IS NOT NULL THEN 1 END) AS AbsentEmployees
   FROM
     dbo.attendance a
-    LEFT JOIN
+    INNER JOIN
     dbo.attendanceDetails ad ON a.atd_id = ad.atd_id
   WHERE
     a.org_id = @OrganizationID

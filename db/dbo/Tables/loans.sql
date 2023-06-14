@@ -16,3 +16,6 @@ ALTER TABLE [dbo].[loans] ADD CONSTRAINT [DF_loans_loan_date] DEFAULT (GETDATE()
 
 -- Add payment date field
 ALTER TABLE [dbo].[loans] ADD [loan_payment_date] DATETIME NULL
+
+-- Not Negative amount constraint
+ALTER TABLE [dbo].[loans] ADD CONSTRAINT [CK_loans_loan_amount] CHECK (loan_amount >= 0)

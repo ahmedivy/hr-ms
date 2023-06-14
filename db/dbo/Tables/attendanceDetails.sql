@@ -10,3 +10,10 @@ CREATE TABLE [dbo].[attendanceDetails]
   PRIMARY KEY ([atd_id], [emp_id])
 )
 GO
+
+
+ALTER TABLE [dbo].[attendanceDetails]
+ADD CONSTRAINT [CK_attendanceDetails_time_in] CHECK ([time_in] >= '00:00:00' AND [time_in] <= '23:59:59')
+
+ALTER TABLE [dbo].[attendanceDetails]
+ADD CONSTRAINT [CK_attendanceDetails_time_out] CHECK ([time_out] >= '00:00:00' AND [time_out] <= '23:59:59')

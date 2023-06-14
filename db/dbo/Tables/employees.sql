@@ -36,3 +36,22 @@ ADD CONSTRAINT [DF_employees_emp_hire_date] DEFAULT (GETDATE()) FOR [emp_hire_da
 -- Set DOB to allow nulls
 ALTER TABLE [dbo].[employees]
 ALTER COLUMN [emp_dob] DATE NULL
+
+-- EMAIL Validation Constraint
+ALTER TABLE [dbo].[employees]
+ADD CONSTRAINT [CK_employees_emp_email] CHECK (emp_email LIKE '%_@__%.__%')
+
+ALTER TABLE [dbo].[employees]
+ALTER COLUMN [emp_email] NVARCHAR(50) NOT NULL
+
+-- CNIC Unique Constraint
+ALTER TABLE [dbo].[employees]
+ADD CONSTRAINT [UQ_employees_emp_cnic] UNIQUE ([emp_cnic])
+
+-- CNIC Validation Constraint
+ALTER TABLE [dbo].[employees]
+ADD CONSTRAINT [CK_employees_emp_cnic] CHECK (emp_cnic LIKE '[0-9][0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9][0-9][0-9][0-9]-[0-9]')
+
+-- Phone Validation Constraint
+ALTER TABLE [dbo].[employees]
+ADD CONSTRAINT [CK_employees_emp_phone] CHECK (emp_phone LIKE '[0-9][0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9][0-9][0-9][0-9]')

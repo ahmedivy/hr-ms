@@ -7,3 +7,7 @@ CREATE TABLE [dbo].[salary]
   [sal_year] NVARCHAR(4) NOT NULL,
   [sal_discription] NVARCHAR(100) NULL,
 )
+
+-- ADD Constaints
+
+ALTER TABLE [dbo].[salary] ADD CONSTRAINT [CK_salary_sal_month] CHECK ([sal_month] IN ('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'))

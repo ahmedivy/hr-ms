@@ -4,3 +4,7 @@ CREATE TABLE [dbo].[attendance]
   [org_id] INT NOT NULL FOREIGN KEY REFERENCES [dbo].[organizations]([org_id]),
   [atd_date] DATE NOT NULL,
 )
+
+
+CREATE NONCLUSTERED INDEX [IX_atd_date]
+ON [dbo].[attendance] ([atd_date] ASC)

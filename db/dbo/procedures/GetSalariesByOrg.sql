@@ -3,7 +3,6 @@ CREATE PROCEDURE [dbo].[GetSalaryByOrg]
 AS
 BEGIN
   SELECT
-    TOP(12)
     s.sal_id,
     s.sal_month + ' (' + s.sal_year + ')' AS sal_month,
     SUM(sd.sal_gross_amount) AS total_gross,
@@ -15,3 +14,5 @@ BEGIN
   GROUP BY s.sal_id, s.sal_month, s.sal_year
   ORDER BY CONVERT(DATE, '01-' + s.sal_month + '-' + s.sal_year, 103) DESC
 END
+
+DROP PROCEDURE IF EXISTS [dbo].[GetSalaryByOrg]
