@@ -1,9 +1,8 @@
-from sqlmodel import text
 from PySide6.QtCore import Slot
-from PySide6.QtWidgets import QMainWindow
+from PySide6.QtWidgets import QMainWindow, QMessageBox
 
 
-from core.database import engine, cursor
+from core.database import cursor
 from ui.screens.addloan_ui import Ui_AddLoanWindow
 
 
@@ -21,15 +20,12 @@ class AddLoanWindow(QMainWindow):
         self.populateOrganization()
         
     def populateOrganization(self):
-        with engine.connect() as conn:
-            stmt = text(
-                "SELECT o.org_id, o.org_name FROM Organizations o"
-            )
-            result = conn.execute(stmt)
-            organizations = result.fetchall()
+        stmt = "SELECT o.org_id, o.org_name FROM Organizations o"
+        cursor.execute(stmt)
+        organizations = cursor.fetchall()
         
-        for org in organizations:
-            self.ui.orgField.addItem(org.org_name, org.org_id)
+        for _id, name in organizations:
+            self.ui.orgField.addItem(name, _id)
             
         # Add Default Item
         self.ui.orgField.setCurrentIndex(0)
@@ -37,14 +33,14 @@ class AddLoanWindow(QMainWindow):
         # Connect the signal
         self.ui.orgField.currentIndexChanged.connect(self.handleOrgChange)
         
+        
     @Slot()
     def handleOrgChange(self):
         org_id = self.ui.orgField.currentData()
         
-        with engine.connect() as conn:
-            stmt = text(f"SELECT e.emp_id, e.emp_firstname + ' ' + e.emp_lastname FROM employees e WHERE e.org_id = {org_id}")
-            result = conn.execute(stmt)
-            emps = result.fetchall()
+        stmt = f"SELECT e.emp_id, e.emp_firstname + ' ' + e.emp_lastname FROM employees e WHERE e.org_id = {org_id}"
+        cursor.execute(stmt)
+        emps = cursor.fetchall()
             
         self.ui.empField.clear()
         for emp in emps:
@@ -59,17 +55,30 @@ class AddLoanWindow(QMainWindow):
         amount = self.ui.amountField.text()
         reason = self.ui.reasonField.text()
         
-        if not amount:
+        try:    
+            if not amount or float(amount) <= 0:
+                self.ui.amountField.setFocus()
+                msg = QMessageBox()
+                msg.setIcon(QMessageBox.Critical)
+                msg.setText("Error")
+                msg.setInformativeText("Amount is not valid")
+                msg.setWindowTitle("Error")
+                msg.exec_()
+                return 
+        except:
             self.ui.amountField.setFocus()
-            return
-        print(emp_id, amount, reason)
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setText("Error")
+            msg.setInformativeText("Amount is not valid")
+            msg.setWindowTitle("Error")
+            msg.exec_()
+            return      
         
-        stmt = cursor.execute(
+        cursor.execute(
             f"INSERT INTO dbo.loans (emp_id, loan_amount, loan_description) VALUES ({emp_id}, {amount}, '{reason}')"
         )
         cursor.commit()
-        
-                
         
         self.close()
             

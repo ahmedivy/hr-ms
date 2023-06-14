@@ -111,11 +111,8 @@ border-radius:10px;
          <item>
           <widget class="QComboBox" name="orgField">
            <property name="styleSheet">
-            <string notr="true">background-color:#FFFAFB;
-width:250px;
-height: 25px;
-margin: 3px 0;
-border-radius:10px;
+            <string notr="true">color: white;
+font-size: 16px
 </string>
            </property>
           </widget>

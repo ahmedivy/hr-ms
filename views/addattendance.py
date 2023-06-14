@@ -2,7 +2,7 @@ import pandas as pd
 from PySide6.QtCore import Slot
 from datetime import date, timedelta, datetime
 from PySide6.QtCore import QAbstractTableModel, Qt, QModelIndex, Slot
-from PySide6.QtWidgets import QMainWindow, QFileDialog, QHeaderView, QPushButton
+from PySide6.QtWidgets import QMainWindow, QFileDialog, QHeaderView, QMessageBox
 
 
 from core.database import cursor
@@ -88,6 +88,18 @@ class AddAttendanceWindow(QMainWindow):
     def confirm_attendance(self):
         org_id = self.ui.orgField.currentData()
         att_date = self.ui.dateField.currentText().split(" ")[0]
+        
+        # Check if attendance already exists
+        stmt = f"SELECT atd_id FROM Attendance WHERE atd_date = '{att_date}' AND org_id = {org_id}"
+        cursor.execute(stmt)
+        if cursor.fetchone():
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setText("Error")
+            msg.setInformativeText("Attendance for this date already exists")
+            msg.setWindowTitle("Error")
+            msg.exec_()
+            return
           
         stmt = f"INSERT INTO Attendance (atd_date, org_id) VALUES ('{att_date}', {org_id})"
         print(stmt)

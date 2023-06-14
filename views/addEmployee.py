@@ -1,5 +1,6 @@
+import re
 from PySide6.QtCore import Slot
-from PySide6.QtWidgets import QMainWindow
+from PySide6.QtWidgets import QMainWindow, QMessageBox
 
 from core.database import cursor
 from ui.screens.addemployee_ui import Ui_AddEmployeeWindow
@@ -38,7 +39,26 @@ class AddEmployeeWindow(QMainWindow):
 
         # Validate the fields
         if not firstname or not email or not phone or not position or not hourly_rate:
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setText("Error")
+            msg.setInformativeText("Please fill all fields")
+            msg.setWindowTitle("Error")
+            msg.exec_()
             return
+        
+        
+        # email validation
+        emailValidation = re.compile(r"[^@]+@[^@]+\.[^@]+")
+        if not emailValidation.match(email):
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setText("Error")
+            msg.setInformativeText("Email is not valid")
+            msg.setWindowTitle("Error")
+            msg.exec_()
+            return
+        
 
         stmt = f"INSERT INTO employees(org_id, emp_firstname, emp_lastname, emp_email, emp_phone, emp_address, emp_city, emp_state, emp_zip, emp_country, emp_position, emp_hourly_rate) VALUES ({org_id}, '{firstname}', '{lastname}', '{email}', '{phone}', '{address}', '{city}', '{state}', '{zip_code}', '{country}', '{position}', {hourly_rate})"
         cursor.execute(stmt)

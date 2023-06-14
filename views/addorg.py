@@ -1,7 +1,7 @@
-from sqlmodel import text
+import re
 from PySide6.QtCore import Slot
 from collections import namedtuple
-from PySide6.QtWidgets import QMainWindow
+from PySide6.QtWidgets import QMainWindow, QMessageBox
 
 from core.database import cursor
 from ui.screens.addorg_ui import Ui_AddOrgWindow
@@ -115,18 +115,36 @@ class OrgDetails(QMainWindow):
             _zip = self.ui.zipField.text()
             _type = self.ui.typeField.currentText()
             
+            if not name or not email or not phone or not city or not address or not state or not country or not _zip or not _type:
+                # open a message box
+                msg = QMessageBox()
+                msg.setIcon(QMessageBox.Critical)
+                msg.setText("Error")
+                msg.setInformativeText("Fields cannot be empty")
+                msg.setWindowTitle("Error")
+                msg.exec_()
+                return 
+                return
             
-#               @name NVARCHAR(50),
-#   @email NVARCHAR(50),
-#   @website NVARCHAR(50),
-#   @type NVARCHAR(50),
-#   @phone NVARCHAR(20),
-#   @city NVARCHAR(100),
-#   @address NVARCHAR(100),
-#   @state NVARCHAR(50),
-#   @country NVARCHAR(50),
-#   @zip NVARCHAR(20)
-            # Execute the stored procedure
+            # Validate the data
+            if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
+                msg = QMessageBox()
+                msg.setIcon(QMessageBox.Critical)
+                msg.setText("Error")
+                msg.setInformativeText("Email invalid")
+                msg.setWindowTitle("Error")
+                msg.exec_()
+                return 
+            
+            if not re.match(r"^[0-9]{11}$", phone):
+                msg = QMessageBox()
+                msg.setIcon(QMessageBox.Critical)
+                msg.setText("Error")
+                msg.setInformativeText("Phone is not valid")
+                msg.setWindowTitle("Error")
+                msg.exec_()
+                return 
+            
             cursor.execute(proc_call, (name, email, _type, phone, city, address, state, country, _zip))
             cursor.commit()
             self.close()

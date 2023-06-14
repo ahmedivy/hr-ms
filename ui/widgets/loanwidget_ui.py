@@ -93,11 +93,8 @@ class Ui_LoanWidget(object):
 
         self.orgField = QComboBox(LoanWidget)
         self.orgField.setObjectName(u"orgField")
-        self.orgField.setStyleSheet(u"background-color:#FFFAFB;\n"
-"width:250px;\n"
-"height: 25px;\n"
-"margin: 3px 0;\n"
-"border-radius:10px;\n"
+        self.orgField.setStyleSheet(u"color: white;\n"
+"font-size: 16px\n"
 "")
 
         self.filterBar.addWidget(self.orgField)

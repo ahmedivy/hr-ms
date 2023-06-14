@@ -20,6 +20,7 @@ class LoanTableModel(QAbstractTableModel):
             "Amount",
             "Date",
             "Status",
+            "Description",
             "Payment Date",
             "Actions"
         ]
@@ -46,7 +47,9 @@ class LoanTableModel(QAbstractTableModel):
             elif index.column() == 5:
                 return str(loan[7])
             elif index.column() == 6:
-                return str(loan[8])         
+                return str(loan[8])  
+            elif index.column() == 7:
+                return str(loan[9])       
             
     def headerData(self, section: int, orientation: Qt.Orientation, role: int = None):
         if role == Qt.DisplayRole:
@@ -107,7 +110,7 @@ class LoanWidget(QWidget):
             if index_value != "Paid":
                 button = QPushButton("Payment Done", self)
                 button.clicked.connect(self.handleClick)
-                self.ui.tableView.setIndexWidget(self.ui.tableView.model().index(ix, 7), button)
+                self.ui.tableView.setIndexWidget(self.ui.tableView.model().index(ix, 8), button)
 
             
     @Slot()
