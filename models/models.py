@@ -1,7 +1,11 @@
+# This file is not used in this project. The project does
+# not use any ORM. This file is just for reference.
+
+
+
 from typing import Optional, List
 from datetime import date, datetime
 from sqlmodel import SQLModel, Field, Relationship
-
 
 
 class Organization(SQLModel, table=True):
