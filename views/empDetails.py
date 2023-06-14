@@ -1,7 +1,6 @@
 from datetime import date
 from PySide6.QtCore import Slot
 from collections import namedtuple
-from sqlmodel import Session, select
 from PySide6.QtWidgets import QMainWindow
 
 from core.database import cursor
